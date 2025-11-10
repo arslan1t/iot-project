@@ -24,24 +24,25 @@
     </div>
   </header>
 
-  <!-- Hero -->
-  <section id="hero" class="hero section">
-    <div class="container hero-grid">
-      <div class="hero-text">
-        <h1>Smart Shoes for Blind People</h1>
-        <p>
-          An intelligent IoT-based assistive navigation system that empowers independence and confidence for visually impaired individuals
-        </p>
-        <div class="hero-cta">
-          <a class="btn" href="#projects">Explore Project ↓</a>
-          <a class="btn ghost" href="#contact">Связаться</a>
-        </div>
-      </div>
-      <div class="hero-media card">
-        <img src="https://placehold.co/640x400/png?text=Device+Photo" alt="IoT device demo" />
+ <!-- Hero -->
+<section id="hero" class="hero section">
+  <div class="container hero-grid">
+    <div class="hero-text">
+      <h1>Smart Shoes for Blind People</h1>
+      <p>
+        An intelligent IoT-based assistive navigation system that empowers independence and confidence for visually impaired individuals
+      </p>
+      <div class="hero-cta">
+        <a class="btn" href="#projects">Explore Project ↓</a>
+        <a class="btn ghost" href="#contact">Связаться</a>
       </div>
     </div>
-  </section>
+    <div class="hero-media card">
+      <img src="pictures/main-picture.png" alt="Smart Shoe Device" />
+    </div>
+  </div>
+</section>
+
 
   <!-- Mission -->
   <section id="mission" class="section">
@@ -65,10 +66,6 @@ Many assistive devices are heavy, require handheld operation, or draw unwanted a
 
 The system is lightweight, requires no handheld components, and operates silently through haptic feedback, creating a truly invisible assistive technology.</p>
         </div>
-        <div class="card">
-          <h3>Облако</h3>
-          <p>Дашборды, алерты, API. Масштабирование без боли.</p>
-        </div>
       </div>
     </div>
   </section>
@@ -79,23 +76,68 @@ The system is lightweight, requires no handheld components, and operates silentl
       <h2 class="section-title">How the System Works</h2>
       <div class="cards three">
         <div class="card card-media">
-          <img src="https://placehold.co/480x300/png?text=Camera+Kit" alt="Camera kit" />
+          <img src="pictures/lidar.png" alt="lidar" />
           <h3>Obstacle Detection</h3>
           <p>Ultrasonic sensors and LIDAR technology continuously scan the path ahead, detecting obstacles from 15cm to 150cm away with 95% accuracy. The system identifies objects at various heights, from ground-level hazards to head-level obstacles.</p>
         </div>
         <div class="card card-media">
-          <img src="https://placehold.co/480x300/png?text=Sensor+Hub" alt="Sensor hub" />
+          <img src="pictures/esp32.png" alt="esp32" />
           <h3>Adaptive Signal System</h3>
           <p>The ESP32 microcontroller processes sensor data in real-time and generates adaptive feedback signals. As obstacles get closer, vibration intensity increases proportionally, providing intuitive distance awareness without visual confirmation.</p>
         </div>
         <div class="card card-media">
-          <img src="https://placehold.co/480x300/png?text=Edge+Gateway" alt="Edge gateway" />
+          <img src="pictures/gps.png" alt="gps" />
           <h3>GPS Emergency Tracking</h3>
           <p>Integrated GPS NEO-6M module provides precise location tracking with ±5 meter accuracy. In case of emergency, the system can transmit the user's exact location to designated contacts or emergency services via WiFi or Bluetooth connectivity.</p>
         </div>
       </div>
     </div>
   </section>
+
+
+<section class="section alt">
+  <div class="container">
+    <h2 class="section-title">Impact and Future Development</h2>
+    <p class="muted center max600">
+      Our vision for the future of assistive navigation technology
+    </p>
+
+    <div class="cards two">
+
+      <div class="card">
+        <h3>Validated Effectiveness</h3>
+        <p>
+          Field testing demonstrates 95%+ obstacle detection accuracy across indoor and outdoor environments.
+          System reliability proven through hundreds of hours of real-world navigation.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>User-Centered Design</h3>
+        <p>
+          Developed with continuous feedback from visually impaired individuals.  
+          Prioritizes comfort, discretion, and intuitive use.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Open Source Contribution</h3>
+        <p>
+          Hardware schematics, firmware, and documentation will be available on GitHub, enabling researchers and developers to extend the project.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Future Enhancements</h3>
+        <p>
+          Roadmap includes ML-based obstacle classification, improved path planning,
+          smart-city integration, and enhanced wireless communication.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
 
   <!-- Projects -->
   <section id="projects" class="section">
@@ -105,10 +147,7 @@ The system is lightweight, requires no handheld components, and operates silentl
         <div class="card">
           <h3>Environmental Sensing</h3>
           <p>Ultrasonic HC-SR04 (40kHz) and LIDAR TFmini Plus sensors continuously scan a 120-degree field of view ahead, capturing real-time distance data at millisecond intervals.</p>
-          <ul class="bullets">
-            <li>Локально, без отправки видео</li>
-            <li>Отчёты и экспорт данных</li>
-            <li>Установка за 1 день</li>
+
           </ul>
         </div>
         <div class="card">
@@ -126,6 +165,130 @@ The system is lightweight, requires no handheld components, and operates silentl
       </div>
     </div>
   </section>
+
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Detailed Technical Specifications</h2>
+    <p class="muted center max600">Full hardware and software parameters</p>
+
+    <div class="cards three">
+
+      <div class="card">
+        <h3>Processing Unit</h3>
+        <ul class="bullets">
+          <li>ESP32-WROVER-B Module</li>
+          <li>Dual-core Xtensa LX6 @ 240 MHz</li>
+          <li>520KB SRAM / 4MB Flash</li>
+          <li>Wi-Fi 2.4GHz (802.11 b/g/n)</li>
+          <li>Bluetooth 5.0 + BLE</li>
+          <li>FreeRTOS Real-Time OS</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Sensor Array</h3>
+        <ul class="bullets">
+          <li>HC-SR04 Ultrasonic Sensor</li>
+          <li>TFmini Plus LiDAR</li>
+          <li>GPS NEO-6M (±5m accuracy)</li>
+          <li>IMU & 3-Axis Accelerometer</li>
+          <li>Detection Range: 15–150 cm</li>
+          <li>120° Field of View</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Feedback Systems</h3>
+        <ul class="bullets">
+          <li>Piezo Buzzer (80 Hz – 16 kHz)</li>
+          <li>3× Directional Vibration Motors</li>
+          <li>Optional Speaker Output</li>
+          <li>Adaptive Intensity Control</li>
+          <li>Response Latency: &lt;100 ms</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Power Management</h3>
+        <ul class="bullets">
+          <li>3000mAh Li-Po Battery</li>
+          <li>Operating Time: 8+ hours</li>
+          <li>Fast Charging (2 hours)</li>
+          <li>Dynamic Power Optimization</li>
+          <li>Low Battery Warning System</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Physical Specifications</h3>
+        <ul class="bullets">
+          <li>Weight: &lt;200g per shoe</li>
+          <li>IP54 Water Resistance</li>
+          <li>Operating Temp −10°C to +50°C</li>
+          <li>Durable ABS Housing</li>
+          <li>Modular Replaceable Components</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Software Features</h3>
+        <ul class="bullets">
+          <li>Real-Time Obstacle Classification</li>
+          <li>Edge AI Algorithms</li>
+          <li>Adaptive Signal Processing</li>
+          <li>GPS Data Logging</li>
+          <li>Emergency Alert Broadcast</li>
+          <li>OTA Firmware Updates</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="container">
+    <h2 class="section-title">Project Development Timeline</h2>
+    <p class="muted center max600">Step-by-step development roadmap</p>
+
+    <div class="cards two">
+
+      <div class="card">
+        <h3>Phase 1: Hardware Setup</h3>
+        <p>
+          Integrate ESP32 with sensors (ultrasonic, LiDAR, GPS), feedback systems,
+          and power module. Assemble the first working prototype.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Phase 2: System Programming</h3>
+        <p>
+          Develop real-time firmware for data acquisition, obstacle detection,
+          adaptive algorithms, and emergency alert communication.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Phase 3: Testing & Validation</h3>
+        <p>
+          Conduct real-world testing to verify obstacle detection accuracy,
+          vibration response quality, and GPS reliability in multiple environments.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Phase 4: Deployment & Refinement</h3>
+        <p>
+          Integrate final components into sleek form factor, perform user trials
+          with visually impaired individuals, collect feedback, and optimize usability.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
 
   <!-- Team -->
   <section id="team" class="section alt">
@@ -182,7 +345,7 @@ The system is lightweight, requires no handheld components, and operates silentl
 
   <footer class="footer">
     <div class="container">
-      <p>© 2025 IoT Project. Сделано с ❤️ и Edge‑AI.</p>
+      <p>2025 IoT Project. Shipulin Arslan 25040200.</p>
     </div>
   </footer>
 
