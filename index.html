@@ -28,13 +28,12 @@
   <section id="hero" class="hero section">
     <div class="container hero-grid">
       <div class="hero-text">
-        <h1>Интернет вещей для реальных задач</h1>
+        <h1>Smart Shoes for Blind People</h1>
         <p>
-          Мы создаём доступные решения на базе сенсоров, камер и edge‑аналитики.
-          От прототипа до пилота — быстро, прозрачно, масштабируемо.
+          An intelligent IoT-based assistive navigation system that empowers independence and confidence for visually impaired individuals
         </p>
         <div class="hero-cta">
-          <a class="btn" href="#projects">Смотреть проекты</a>
+          <a class="btn" href="#projects">Explore Project ↓</a>
           <a class="btn ghost" href="#contact">Связаться</a>
         </div>
       </div>
@@ -47,19 +46,24 @@
   <!-- Mission -->
   <section id="mission" class="section">
     <div class="container">
-      <h2 class="section-title">Наша миссия</h2>
+      <h2 class="section-title">Addressing a Critical Need</h2>
       <p class="muted center max600">
-        Делаем IoT-проекты, которые приносят реальную пользу: телеметрия, видео‑аналитика,
-        контроль качества, автоматизация и безопасность.
+        Understanding the challenge and our innovative approach to solving it
       </p>
       <div class="cards three">
         <div class="card">
-          <h3>Edge‑AI</h3>
-          <p>Локальная обработка данных на устройствах: быстрее и приватнее.</p>
+          <h3>The Problem</h3>
+          <p>Existing navigation systems for visually impaired individuals are often bulky, conspicuous, and uncomfortable to use. These devices stand out significantly, causing self-consciousness and limiting mobility. Traditional white canes, while helpful, cannot detect obstacles at various heights or provide advanced warnings.
+
+
+Many assistive devices are heavy, require handheld operation, or draw unwanted attention, making users feel stigmatized rather than empowered.</p>
         </div>
         <div class="card">
-          <h3>Сенсоры</h3>
-          <p>Температура, движение, положение, вибрации — собираем и объединяем.</p>
+          <h3>Our Solution</h3>
+          <p>An ergonomic, discreet solution seamlessly integrated into everyday footwear. Our smart shoes provide natural obstacle detection without drawing attention, allowing users to navigate confidently while maintaining their personal style and dignity.
+
+
+The system is lightweight, requires no handheld components, and operates silently through haptic feedback, creating a truly invisible assistive technology.</p>
         </div>
         <div class="card">
           <h3>Облако</h3>
@@ -72,22 +76,22 @@
   <!-- Devices -->
   <section id="devices" class="section alt">
     <div class="container">
-      <h2 class="section-title">Устройства</h2>
+      <h2 class="section-title">How the System Works</h2>
       <div class="cards three">
         <div class="card card-media">
           <img src="https://placehold.co/480x300/png?text=Camera+Kit" alt="Camera kit" />
-          <h3>Camera Kit</h3>
-          <p>Комплект с USB‑камерой и Jetson/CPU для видео‑аналитики.</p>
+          <h3>Obstacle Detection</h3>
+          <p>Ultrasonic sensors and LIDAR technology continuously scan the path ahead, detecting obstacles from 15cm to 150cm away with 95% accuracy. The system identifies objects at various heights, from ground-level hazards to head-level obstacles.</p>
         </div>
         <div class="card card-media">
           <img src="https://placehold.co/480x300/png?text=Sensor+Hub" alt="Sensor hub" />
-          <h3>Sensor Hub</h3>
-          <p>Собирает телеметрию с BLE/LoRa/Wi‑Fi сенсоров, шлёт в облако.</p>
+          <h3>Adaptive Signal System</h3>
+          <p>The ESP32 microcontroller processes sensor data in real-time and generates adaptive feedback signals. As obstacles get closer, vibration intensity increases proportionally, providing intuitive distance awareness without visual confirmation.</p>
         </div>
         <div class="card card-media">
           <img src="https://placehold.co/480x300/png?text=Edge+Gateway" alt="Edge gateway" />
-          <h3>Edge Gateway</h3>
-          <p>Агрегирует данные, кэширует и управляет обновлениями устройств.</p>
+          <h3>GPS Emergency Tracking</h3>
+          <p>Integrated GPS NEO-6M module provides precise location tracking with ±5 meter accuracy. In case of emergency, the system can transmit the user's exact location to designated contacts or emergency services via WiFi or Bluetooth connectivity.</p>
         </div>
       </div>
     </div>
@@ -96,11 +100,11 @@
   <!-- Projects -->
   <section id="projects" class="section">
     <div class="container">
-      <h2 class="section-title">Проекты</h2>
+      <h2 class="section-title">Technical Approach and System Workflow</h2>
       <div class="cards two">
         <div class="card">
-          <h3>Видеоналитика магазина</h3>
-          <p>Подсчёт посетителей, карта внимания, базовая эмо‑аналитика на устройстве.</p>
+          <h3>Environmental Sensing</h3>
+          <p>Ultrasonic HC-SR04 (40kHz) and LIDAR TFmini Plus sensors continuously scan a 120-degree field of view ahead, capturing real-time distance data at millisecond intervals.</p>
           <ul class="bullets">
             <li>Локально, без отправки видео</li>
             <li>Отчёты и экспорт данных</li>
@@ -108,14 +112,17 @@
           </ul>
         </div>
         <div class="card">
-          <h3>Мониторинг склада</h3>
-          <p>Температура, влажность, открытия дверей, вибрации — всё в одном дашборде.</p>
-          <ul class="bullets">
-            <li>LoRa + Wi‑Fi гибрид</li>
-            <li>Алерты в Telegram/Email</li>
-            <li>API для BI</li>
+          <h3>Data Processing</h3>
+          <p>ESP32-WROVER-B dual-core processor (240MHz) analyzes sensor streams using adaptive algorithms, filtering noise and classifying obstacles by distance and urgency.</p>
           </ul>
         </div>
+        <div class="card">
+          <h3>Location Tracking</h3>
+          <p>GPS NEO-6M module maintains continuous position awareness, logging coordinates and enabling emergency location broadcasting via wireless connectivity.</p>
+      </div>
+      <div class="card">
+          <h3>Feedback Generation</h3>
+          <p>Multi-modal alert system delivers context-aware feedback through vibration motors, piezo buzzer, and optional speaker, adapting to environmental conditions and user preferences.</p>
       </div>
     </div>
   </section>
@@ -123,28 +130,27 @@
   <!-- Team -->
   <section id="team" class="section alt">
     <div class="container">
-      <h2 class="section-title">Команда</h2>
+      <h2 class="section-title">Team</h2>
       <div class="team">
         <div class="member card">
           <img src="https://placehold.co/160x160/png?text=A" alt="Member A" />
           <h3>Arslan Shipulin</h3>
-          <p class="muted">Robotics &amp; AI</p>
+          <p class="muted">Software Developer</p>
         </div>
         <div class="member card">
           <img src="https://placehold.co/160x160/png?text=B" alt="Member B" />
-          <h3>Member B</h3>
-          <p class="muted">Hardware</p>
+          <h3>Mahmudkhon Usmonov</h3>
+          <p class="muted">Project Lead</p>
         </div>
         <div class="member card">
           <img src="https://placehold.co/160x160/png?text=C" alt="Member C" />
-          <h3>Member C</h3>
-          <p class="muted">Backend</p>
+          <h3>Fyodor Amanov</h3>
+          <p class="muted">Hardware Engineer</p>
         </div>
         <div class="member card">
-          <img src="https://placehold.co/160x160/png?text=D" alt="Member D" />
-          <h3>Member D</h3>
-          <p class="muted">Frontend</p>
-        </div>
+          <img src="https://placehold.co/160x160/png?text=C" alt="Member D" />
+          <h3>Muhammad Zubair Islam</h3>
+          <p class="muted">Research Supervision</p>
       </div>
     </div>
   </section>
