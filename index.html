@@ -145,6 +145,61 @@
     </div>
   </section>
 
+<section class="section">
+  <div class="container center">
+    <h2 class="section-title">System Architecture</h2>
+    <p class="muted max600 center">
+      High-level architecture of the smart-shoe assistive navigation system
+    </p>
+
+    <!-- ARCHITECTURE DIAGRAM -->
+    <div class="image-block">
+      <svg viewBox="0 0 1200 600" style="width:100%;height:auto;border-radius:16px;" xmlns="http://www.w3.org/2000/svg">
+
+        <!-- Background -->
+        <rect width="1200" height="600" fill="#0f172a" rx="20"/>
+
+        <!-- SENSORS BLOCK -->
+        <rect x="60" y="120" width="260" height="360" rx="18" fill="#111a2e" stroke="#1f2a44" stroke-width="2"/>
+        <text x="190" y="170" fill="#5cc1ff" font-size="20" text-anchor="middle" font-weight="700">Sensors</text>
+        <text x="190" y="210" fill="#9fb0c3" font-size="16" text-anchor="middle">Ultrasonic HC-SR04</text>
+        <text x="190" y="240" fill="#9fb0c3" font-size="16" text-anchor="middle">LiDAR TFmini Plus</text>
+        <text x="190" y="270" fill="#9fb0c3" font-size="16" text-anchor="middle">IMU / Accelerometer</text>
+        <text x="190" y="300" fill="#9fb0c3" font-size="16" text-anchor="middle">GPS NEO-6M</text>
+
+        <!-- ESP32 BLOCK -->
+        <rect x="470" y="90" width="260" height="420" rx="18" fill="#111a2e" stroke="#1f2a44" stroke-width="2"/>
+        <text x="600" y="140" fill="#45e5a4" font-size="22" text-anchor="middle" font-weight="700">ESP32 Processor</text>
+        <text x="600" y="180" fill="#9fb0c3" font-size="16" text-anchor="middle">Dual-core 240MHz</text>
+        <text x="600" y="205" fill="#9fb0c3" font-size="16" text-anchor="middle">Real-Time Processing</text>
+        <text x="600" y="230" fill="#9fb0c3" font-size="16" text-anchor="middle">Noise Filtering</text>
+        <text x="600" y="255" fill="#9fb0c3" font-size="16" text-anchor="middle">Distance Classification</text>
+        <text x="600" y="280" fill="#9fb0c3" font-size="16" text-anchor="middle">Emergency Logic</text>
+
+        <!-- FEEDBACK BLOCK -->
+        <rect x="880" y="120" width="260" height="360" rx="18" fill="#111a2e" stroke="#1f2a44" stroke-width="2"/>
+        <text x="1010" y="170" fill="#5cc1ff" font-size="20" text-anchor="middle" font-weight="700">Feedback</text>
+        <text x="1010" y="210" fill="#9fb0c3" font-size="16" text-anchor="middle">Vibration Motors</text>
+        <text x="1010" y="240" fill="#9fb0c3" font-size="16" text-anchor="middle">Piezo Buzzer</text>
+        <text x="1010" y="270" fill="#9fb0c3" font-size="16" text-anchor="middle">Optional Speaker</text>
+        <text x="1010" y="300" fill="#9fb0c3" font-size="16" text-anchor="middle">Adaptive Intensity</text>
+
+        <!-- ARROWS -->
+        <line x1="320" y1="300" x2="470" y2="300" stroke="#45e5a4" stroke-width="4" marker-end="url(#arrow)"/>
+        <line x1="730" y1="300" x2="880" y2="300" stroke="#45e5a4" stroke-width="4" marker-end="url(#arrow)"/>
+
+        <!-- Arrow Marker -->
+        <defs>
+          <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+            <polygon points="0 0, 8 3, 0 6" fill="#45e5a4"/>
+          </marker>
+        </defs>
+
+      </svg>
+    </div>
+
+  </div>
+</section>
 
 
   <!-- WORKFLOW -->
