@@ -107,33 +107,78 @@
 
 
   <!-- SYSTEM -->
-  <section id="devices" class="section alt">
-    <div class="container">
-      <h2 class="section-title">How the System Works</h2>
+  <section id="system-map" class="section alt">
+  <div class="container">
+    <h2 class="section-title">System Components Overview</h2>
+    <p class="muted center max600">
+      Interactive overview of all hardware components used in the project
+    </p>
 
-      <div class="cards three">
+    <div class="system-map">
 
-        <div class="card card-media">
-          <img src="pictures/lidar.png" alt="Ultrasonic sensor illustration (placeholder)" />
-          <h3>Directional Obstacle Sensing</h3>
-          <p>Three HC-SR04 ultrasonic sensors (left, center, right) monitor near-field distance to identify obstacles in front of the user.</p>
+      <!-- IMAGE -->
+      <div class="map-image">
+        <img src="pictures/system-map.png" alt="System components map">
+
+        <!-- hotspots -->
+        <div class="hotspot" data-id="ultrasonic" style="top:18%; left:12%;"></div>
+        <div class="hotspot" data-id="hx711" style="top:42%; left:20%;"></div>
+        <div class="hotspot" data-id="arduino" style="top:30%; left:48%;"></div>
+        <div class="hotspot" data-id="lcd" style="top:15%; left:70%;"></div>
+        <div class="hotspot" data-id="rgb" style="top:45%; left:72%;"></div>
+        <div class="hotspot" data-id="haptic" style="top:65%; left:55%;"></div>
+        <div class="hotspot" data-id="gps" style="top:65%; left:80%;"></div>
+        <div class="hotspot" data-id="button" style="top:55%; left:30%;"></div>
+      </div>
+
+      <!-- DESCRIPTIONS -->
+      <div class="map-descriptions">
+
+        <div class="desc" data-id="ultrasonic">
+          <h3>Ultrasonic HC-SR04</h3>
+          <p>Detects obstacles in front of the user and provides distance data for navigation logic.</p>
         </div>
 
-        <div class="card card-media">
-          <img src="pictures/esp32.png" alt="Arduino Uno illustration (placeholder)" />
-          <h3>Non-Blocking Control Loop</h3>
-          <p>Arduino Uno processes all sensors in a non-blocking loop, prioritizing safety alerts before distance-based navigation feedback.</p>
+        <div class="desc" data-id="hx711">
+          <h3>HX711 Pressure Sensor</h3>
+          <p>Measures foot-ground pressure to detect slips and unstable surfaces.</p>
         </div>
 
-        <div class="card card-media">
-          <img src="pictures/gps.png" alt="Prototype outputs illustration (placeholder)" />
-          <h3>Haptic/Audio Outputs</h3>
-          <p>Buzzer, vibration motor, RGB LED, and LCD 16x2 deliver layered cues; GPS/voice are simulated via Serial for testing.</p>
+        <div class="desc" data-id="arduino">
+          <h3>Arduino Uno</h3>
+          <p>Main controller running real-time firmware and priority-based safety logic.</p>
+        </div>
+
+        <div class="desc" data-id="lcd">
+          <h3>LCD 16×2</h3>
+          <p>Displays system status, distance values, and emergency notifications.</p>
+        </div>
+
+        <div class="desc" data-id="rgb">
+          <h3>RGB Status LEDs</h3>
+          <p>Visual system state indicator (normal, warning, emergency).</p>
+        </div>
+
+        <div class="desc" data-id="haptic">
+          <h3>Haptic Feedback Motor</h3>
+          <p>Provides vibration feedback with intensity based on obstacle distance.</p>
+        </div>
+
+        <div class="desc" data-id="gps">
+          <h3>GPS Module</h3>
+          <p>Used for emergency location tracking and SMS simulation.</p>
+        </div>
+
+        <div class="desc" data-id="button">
+          <h3>Emergency Button</h3>
+          <p>Manual emergency trigger with long-press activation logic.</p>
         </div>
 
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
 
 
 

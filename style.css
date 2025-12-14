@@ -754,3 +754,57 @@ tbody tr:nth-child(even) {
   opacity: 0.7;
   margin-top: 12px;
 }
+
+.system-map {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 40px;
+  margin-top: 50px;
+}
+
+.map-image {
+  position: relative;
+}
+
+.map-image img {
+  width: 100%;
+  border-radius: 20px;
+}
+
+/* HOTSPOTS */
+.hotspot {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: #45e5a4;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: 0.2s;
+}
+
+.hotspot:hover,
+.hotspot.active {
+  transform: scale(1.6);
+  opacity: 1;
+}
+
+/* DESCRIPTIONS */
+.map-descriptions .desc {
+  background: #0f172a;
+  border-radius: 14px;
+  padding: 18px 20px;
+  margin-bottom: 14px;
+  border: 1px solid #1f2a44;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.map-descriptions .desc.active {
+  border-color: #45e5a4;
+  box-shadow: 0 0 0 1px #45e5a4;
+}
+
+.map-descriptions h3 {
+  margin-bottom: 6px;
+}

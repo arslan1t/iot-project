@@ -33,3 +33,19 @@
     observer.observe(el);
   });
 })();
+
+const hotspots = document.querySelectorAll('.hotspot');
+const descriptions = document.querySelectorAll('.desc');
+
+function activate(id) {
+  hotspots.forEach(h => h.classList.toggle('active', h.dataset.id === id));
+  descriptions.forEach(d => d.classList.toggle('active', d.dataset.id === id));
+}
+
+hotspots.forEach(h => {
+  h.addEventListener('mouseenter', () => activate(h.dataset.id));
+});
+
+descriptions.forEach(d => {
+  d.addEventListener('mouseenter', () => activate(d.dataset.id));
+});
