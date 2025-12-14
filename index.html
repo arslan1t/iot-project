@@ -234,11 +234,6 @@ with higher-priority alerts.
         </div>
 
         <div class="card">
-          <h3>Location Tracking</h3>
-          <p>GPS/voice outputs are simulated over Serial to test messaging flows without extra hardware.</p>
-        </div>
-
-        <div class="card">
           <h3>Feedback Generation</h3>
           <p>Buzzer, vibration motor, RGB LED, and LCD work together to convey obstacle distance and alerts.</p>
         </div>
@@ -293,78 +288,11 @@ with higher-priority alerts.
         </ul>
       </div>
 
-      <div class="card">
-        <h3>Power Management</h3>
-        <ul class="bullets">
-          <li>5V supply (USB/power bank)</li>
-          <li>On/off control in firmware</li>
-          <li>Focus on low-blocking code vs. power tuning</li>
-          <li>LED/buzzer duty cycling to reduce draw</li>
-          <li>Future: add measured current profile</li>
-          <li>Future: battery-backed portable enclosure</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Physical Specifications</h3>
-        <ul class="bullets">
-          <li>Prototype mounted on shoe mock-up</li>
-          <li>Wiring via breadboard for evaluation</li>
-          <li>Sensor brackets oriented forward</li>
-          <li>Accessible emergency button on upper</li>
-          <li>LCD and LED visible to evaluator</li>
-          <li>Next step: integrated insole layout</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Software Features</h3>
-        <ul class="bullets">
-          <li>Priority-based alert scheduler</li>
-          <li>Slip detection via pressure trends</li>
-          <li>Adaptive beep intervals vs. distance</li>
-          <li>Non-blocking timing (no delay calls)</li>
-          <li>Serial logs for evaluation and grading</li>
-          <li>Configurable thresholds in code</li>
-        </ul>
-      </div>
-
     </div>
   </div>
 </section>
 
-<section id="my-contribution" class="section">
-  <div class="container">
-    <h2 class="section-title">My Contribution: Firmware & Safety Logic</h2>
 
-    <p class="muted center max600">
-      This section highlights my personal contribution to the project, focusing on embedded logic,
-      sensor behavior modeling, and real-time safety prioritization.
-    </p>
-
-    <div class="cards two">
-
-      <div class="card">
-        <h3>Embedded Firmware Design</h3>
-        <p>
-          I developed the core firmware logic responsible for processing sensor data in real time.
-          The system continuously analyzes ultrasonic distance measurements and pressure sensor readings
-          without blocking delays, ensuring stable and responsive behavior.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Priority-Based Safety System</h3>
-        <p>
-          A strict priority hierarchy was implemented to prevent conflicting feedback.
-          Emergency alerts override all signals, slip detection overrides navigation sounds,
-          and obstacle feedback is enabled only when no higher-priority event is active.
-        </p>
-      </div>
-
-    </div>
-  </div>
-</section>
 
 <section id="slip-detection" class="section alt">
   <div class="container">
@@ -494,34 +422,7 @@ with higher-priority alerts.
 
 
 
-  <!-- PERFORMANCE -->
-  <section class="section alt" id="performance">
-    <div class="container">
-
-      <h2 class="section-title center">Performance Metrics</h2>
-      <p class="muted center max600">Real-world validated system performance</p>
-
-      <div class="performance-grid">
-
-        <div class="perf-card"><h3>3× HC-SR04</h3><p>Directional obstacle sensing</p></div>
-        <div class="perf-card"><h3>HX711</h3><p>Pressure trend slip warning</p></div>
-        <div class="perf-card"><h3>Non-blocking</h3><p>millis()-based task scheduling</p></div>
-        <div class="perf-card"><h3>Emergency</h3><p>Long-press button override</p></div>
-        <div class="perf-card"><h3>LCD 16x2</h3><p>Live status + debug text</p></div>
-        <div class="perf-card"><h3>Serial Sim</h3><p>Mock GPS and voice output</p></div>
-
-      </div>
-
-      <div class="performance-image-block">
-        <img src="pictures/performance-diagram.png" alt="Prototype block diagram (placeholder)">
-        <p class="muted small center">
-          Prototype-level assistive navigation system; image is a placeholder illustration.
-        </p>
-      </div>
-    </div>
-  </section>
-
-
+  
 
   <!-- TEAM -->
    <section id="team" class="section alt">
@@ -575,18 +476,21 @@ with higher-priority alerts.
     <div class="cards three" style="margin-top:40px;">
 
       <!-- Arslan -->
-      <div class="card">
-        <h3>Arslan Shipulin</h3>
-        <p class="muted small" style="margin-top:-6px;">UX Lead • System Designer • Testing Lead</p>
-        <ul class="bullets">
-          <li>Design of system architecture & workflow</li>
-          <li>Creation of diagrams, visuals and project website</li>
-          <li>UX evaluation and user interaction mapping</li>
-          <li>Testing and validation of hardware & firmware</li>
-          <li>Documentation and structure of project materials</li>
-          <li>Performance analysis & reporting</li>
-        </ul>
-      </div>
+<div class="card">
+  <h3>Arslan Shipulin</h3>
+  <p class="muted small" style="margin-top:-6px;">
+    Firmware Engineer • Safety Logic • System Integration
+  </p>
+  <ul class="bullets">
+    <li>Development of Arduino Uno firmware with non-blocking main loop</li>
+    <li>Implementation of ultrasonic obstacle detection (left / center / right)</li>
+    <li>Slip detection logic using HX711 pressure sensor and trend analysis</li>
+    <li>Priority-based alert system (emergency → slip → navigation)</li>
+    <li>Design of adaptive audio and haptic feedback patterns</li>
+    <li>Debugging, validation, and behavior testing in Wokwi simulation</li>
+  </ul>
+</div>
+
 
       <!-- Mahmudkhon -->
       <div class="card">
@@ -739,16 +643,7 @@ with higher-priority alerts.
   </div>
 </section>
 
-<!-- ================= IMPACT ================= -->
-<section id="impact" class="section">
-  <div class="container center">
-    <h2 class="section-title">Impact</h2>
-    <p class="muted max600">
-      This project demonstrates how thoughtful firmware design and sensor logic
-      can directly improve safety and independence for visually impaired users.
-    </p>
-  </div>
-</section>
+
 
 <!-- ================= FOOTER ================= -->
 <footer class="footer-advanced">
@@ -782,6 +677,21 @@ with higher-priority alerts.
     <p>© 2025 IoT Smart Shoes Project</p>
   </div>
 </footer>
+<!-- Hidden Sensor Fusion Map -->
+<div class="footer-hidden">
+
+  <button class="footer-toggle" onclick="toggleFusionMap()">
+    View Sensor Fusion Map
+  </button>
+
+  <div id="fusion-map" class="fusion-map hidden">
+    <img src="pictures/sensor.png" alt="Sensor fusion diagram">
+    <p class="muted small center">
+      Sensor fusion overview (reference diagram)
+    </p>
+  </div>
+
+</div>
 
   <script src="script.js"></script>
 </body>

@@ -84,3 +84,7 @@ document.querySelector(".slider").addEventListener("touchend", (e) => {
   if (startX - endX > 50) nextBtn.click();
   if (endX - startX > 50) prevBtn.click();
 });
+function toggleFusionMap() {
+  const map = document.getElementById("fusion-map");
+  map.classList.toggle("hidden");
+}

@@ -860,3 +860,34 @@ tbody tr:nth-child(even) {
 .slider-btn.right {
   right: -24px;
 }
+.footer-hidden {
+  margin-top: 32px;
+  text-align: center;
+}
+
+.footer-toggle {
+  background: none;
+  border: none;
+  color: #9fb0c3;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.footer-toggle:hover {
+  color: #ffffff;
+}
+
+.fusion-map {
+  margin-top: 16px;
+}
+
+.fusion-map img {
+  max-width: 720px;
+  width: 100%;
+  border-radius: 12px;
+}
+
+.hidden {
+  display: none;
+}
