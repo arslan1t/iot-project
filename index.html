@@ -110,12 +110,9 @@
           <img src="pictures/sounds triggers.png" alt="Ultrasonic sensor illustration (placeholder)" />
           <h3>Sensors & Audio Interaction</h3>
           <p>The system continuously collects data from multiple sensors installed in the shoe.
-Ultrasonic sensors detect obstacles in front of the user, while the pressure sensor
-(HX711 with load cell) monitors foot-ground contact to detect unstable or slippery surfaces.
-
-Each sensor event is mapped to a specific sound pattern.
-Different tones and beep frequencies allow the user to understand what is happening
-without visual feedback.</p>
+Ultrasonic sensors detect obstacles in front of the user. Each sensor event is mapped to a specific
+sound pattern so the user can understand the environment without visual feedback.</p>
+          <p class="muted small">Slip detection is handled in the dedicated <a href="#slip-detection">slip-detection</a> module.</p>
         </div>
 
         <div class="card card-media">
@@ -125,11 +122,9 @@ without visual feedback.</p>
 It processes all sensor inputs in real time and decides which feedback
 method should be activated.
 
-A priority-based logic is implemented:
-emergency events have the highest priority,
-slip detection overrides navigation sounds,
-and obstacle feedback works only when no critical events are active.
-</p>
+A priority-based logic is implemented so that emergency events have the highest priority,
+and navigation feedback runs only when no critical events are active. Slip alerts come from the
+dedicated <a href="#slip-detection">slip-detection</a> block.</p>
         </div>
 
         <div class="card card-media">
@@ -239,6 +234,7 @@ with higher-priority alerts.
         </div>
 
       </div>
+      <p class="muted small center" style="margin-top:16px;">Pressure-based slip detection is described in the dedicated <a href="#slip-detection">slip-detection</a> section.</p>
     </div>
   </section>
 
@@ -293,43 +289,6 @@ with higher-priority alerts.
 </section>
 
 
-
-<section id="slip-detection" class="section alt">
-  <div class="container">
-    <h2 class="section-title">Slip Detection Using Pressure Sensor</h2>
-
-    <p class="muted center max600">
-      Detection of unsafe or slippery surfaces using dynamic pressure analysis
-    </p>
-
-    <div class="cards two">
-
-      <div class="card">
-        <h3>How the Sensor Works</h3>
-        <p>
-          The pressure sensor continuously measures foot-ground contact force.
-          Instead of using a single threshold, the firmware analyzes pressure trends
-          and time-based behavior to detect abnormal patterns.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Slip Detection Conditions</h3>
-        <ul class="bullets">
-          <li>Pressure drops below a safe minimum value</li>
-          <li>Sudden pressure decrease between steps</li>
-          <li>Loss of stable contact for a defined time window</li>
-        </ul>
-      </div>
-
-    </div>
-
-    <p class="center muted max600" style="margin-top:24px;">
-      When a slip is detected, the system immediately disables navigation sounds
-      and triggers a dedicated warning pattern to alert the user.
-    </p>
-  </div>
-</section>
 
 <section id="sound-logic" class="section">
   <div class="container">
@@ -484,8 +443,7 @@ with higher-priority alerts.
   <ul class="bullets">
     <li>Development of Arduino Uno firmware with non-blocking main loop</li>
     <li>Implementation of ultrasonic obstacle detection (left / center / right)</li>
-    <li>Slip detection logic using HX711 pressure sensor and trend analysis</li>
-    <li>Priority-based alert system (emergency → slip → navigation)</li>
+    <li>Priority-based alert system for emergency and navigation events</li>
     <li>Design of adaptive audio and haptic feedback patterns</li>
     <li>Debugging, validation, and behavior testing in Wokwi simulation</li>
   </ul>
@@ -499,7 +457,6 @@ with higher-priority alerts.
         <ul class="bullets">
           <li>Firmware development for Arduino Uno (C/C++)</li>
           <li>Sensor data acquisition & timing (HC-SR04)</li>
-          <li>Slip trend analysis using HX711 pressure sensor</li>
           <li>Emergency button handling and alerts</li>
           <li>Serial mock GPS/voice outputs for evaluation</li>
           <li>Non-blocking loop design and tuning</li>
@@ -550,8 +507,7 @@ with higher-priority alerts.
       <div class="card">
         <h3>Priority-Based Architecture</h3>
         <p>
-          Emergency alerts override all systems, slip detection overrides navigation,
-          and obstacle feedback is enabled only when no higher-priority event is active.
+          Emergency alerts override all systems, and obstacle feedback is enabled only when no higher-priority event is active.
         </p>
       </div>
     </div>
@@ -559,13 +515,14 @@ with higher-priority alerts.
 </section>
 
 <!-- ================= SLIP DETECTION ================= -->
-<section class="section">
+<section class="section" id="slip-detection">
   <div class="container">
     <h2 class="section-title">Slip Detection Using Pressure Sensor</h2>
 
     <div class="cards two">
       <div class="card">
         <h3>Detection Logic</h3>
+        <p>HX711-based pressure trend analysis flags unsafe states:</p>
         <ul class="bullets">
           <li>Pressure below safe minimum</li>
           <li>Sudden pressure drop between steps</li>
@@ -576,16 +533,14 @@ with higher-priority alerts.
       <div class="card">
         <h3>Why It Matters</h3>
         <p>
-          Slippery surfaces are one of the most dangerous scenarios for blind users.
-          Early detection significantly reduces fall risk.
+          Slippery surfaces raise fall risk; early pressure-based detection reduces that risk in the prototype.
         </p>
       </div>
     </div>
 
-    <!-- IMAGE -->
     <div class="image-block">
-      <img src="pictures/HX711.png" alt="Slip detection in Wokwi simulation">
-      <p class="muted small center">Slip detection logic tested in Wokwi simulator</p>
+      <img src="pictures/slip-detection.png" alt="Slip detection using pressure sensor (HX711)">
+      <p class="muted small center">Wokwi simulation of pressure-based slip detection</p>
     </div>
   </div>
 </section>
