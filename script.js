@@ -49,3 +49,38 @@ hotspots.forEach(h => {
 descriptions.forEach(d => {
   d.addEventListener('mouseenter', () => activate(d.dataset.id));
 });
+// === SIMPLE IMAGE SLIDER ===
+
+const slides = document.querySelectorAll(".slide");
+const nextBtn = document.querySelector(".slider-btn.right");
+const prevBtn = document.querySelector(".slider-btn.left");
+
+let currentSlide = 0;
+
+function showSlide(index) {
+  slides.forEach((slide) => slide.classList.remove("active"));
+  slides[index].classList.add("active");
+}
+
+nextBtn.addEventListener("click", () => {
+  currentSlide = (currentSlide + 1) % slides.length;
+  showSlide(currentSlide);
+});
+
+prevBtn.addEventListener("click", () => {
+  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+  showSlide(currentSlide);
+});
+
+// Swipe support (touch / trackpad)
+let startX = 0;
+
+document.querySelector(".slider").addEventListener("touchstart", (e) => {
+  startX = e.touches[0].clientX;
+});
+
+document.querySelector(".slider").addEventListener("touchend", (e) => {
+  const endX = e.changedTouches[0].clientX;
+  if (startX - endX > 50) nextBtn.click();
+  if (endX - startX > 50) prevBtn.click();
+});

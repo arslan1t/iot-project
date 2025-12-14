@@ -29,49 +29,42 @@
 
 
   <!-- HERO -->
-  <section id="hero" class="hero section">
-    <div class="container hero-grid">
-      <div class="hero-text">
-        <div class="eyebrow">Assistive navigation footwear • Arduino Uno prototype</div>
-        <h1>Smart Shoes for Safe, Guided Walking</h1>
-        <p>
-          A university-built assistive navigation system that uses an Arduino Uno, three ultrasonic sensors,
-          and a pressure-based slip detector to support safe movement for visually impaired users.
-        </p>
-        <div class="hero-chips">
-          <span class="chip">Arduino Uno non-blocking firmware</span>
-          <span class="chip">3× HC-SR04 (left/center/right)</span>
-          <span class="chip">HX711 pressure slip detection</span>
-          <span class="chip">Buzzer • Vibration • RGB LED • LCD 16x2</span>
-        </div>
-        <div class="hero-cta">
-          <a class="btn" href="#projects">Explore Project ↓</a>
-          <a class="btn ghost" href="#impact">Impact</a>
-          <a class="btn ghost" href="Shipulin's work.pdf" target="_blank">Open PDF ↗</a>
-        </div>
-        <div class="hero-stats">
-          <div class="stat">
-            <div class="stat-num">3 zones</div>
-            <p class="stat-label">Ultrasonic coverage: left, center, right</p>
-          </div>
-          <div class="stat">
-            <div class="stat-num">HX711</div>
-            <p class="stat-label">Pressure trends for slip detection</p>
-          </div>
-          <div class="stat">
-            <div class="stat-num">Priority loop</div>
-            <p class="stat-label">Non-blocking alert scheduling</p>
-          </div>
-        </div>
+<section id="hero" class="hero section">
+  <div class="container hero-grid">
+
+    <!-- TEXT -->
+    <div class="hero-text">
+      <div class="eyebrow">
+        Assistive navigation footwear • Arduino Uno prototype
       </div>
 
-      <div class="hero-media card">
-        <div class="media-badge">Built and evaluated in university tests</div>
-        <img src="pictures/main-picture.png" alt="Smart shoe prototype (placeholder image)" />
-        <div class="media-footnote">Arduino Uno • 3× HC-SR04 • HX711 • Buzzer • Motor • RGB LED • LCD 16x2</div>
+      <h1>Smart Shoes for Safe, Guided Walking</h1>
+
+      <p>
+        A university-built assistive navigation system that uses an Arduino Uno,
+        ultrasonic sensors, and a pressure-based slip detector to support safe
+        movement for visually impaired users.
+      </p>
+
+      <div class="hero-cta">
+        <a class="btn" href="#projects">Explore Project ↓</a>
+        <a class="btn ghost" href="#impact">Impact</a>
+        <a class="btn ghost" href="Shipulin's work.pdf" target="_blank">
+          Open PDF ↗
+        </a>
       </div>
     </div>
-  </section>
+
+    <!-- IMAGE -->
+    <div class="hero-media card">
+      <img
+        src="pictures/main-picture.png"
+        alt="Smart shoes assistive navigation prototype"
+      />
+    </div>
+
+  </div>
+</section>
 
 
 
@@ -107,78 +100,53 @@
 
 
   <!-- SYSTEM -->
-  <section id="system-map" class="section alt">
-  <div class="container">
-    <h2 class="section-title">System Components Overview</h2>
-    <p class="muted center max600">
-      Interactive overview of all hardware components used in the project
-    </p>
+  <section id="devices" class="section alt">
+    <div class="container">
+      <h2 class="section-title">How the System Works</h2>
 
-    <div class="system-map">
+      <div class="cards three">
 
-      <!-- IMAGE -->
-      <div class="map-image">
-        <img src="pictures/system-map.png" alt="System components map">
+        <div class="card card-media">
+          <img src="pictures/sounds triggers.png" alt="Ultrasonic sensor illustration (placeholder)" />
+          <h3>Sensors & Audio Interaction</h3>
+          <p>The system continuously collects data from multiple sensors installed in the shoe.
+Ultrasonic sensors detect obstacles in front of the user, while the pressure sensor
+(HX711 with load cell) monitors foot-ground contact to detect unstable or slippery surfaces.
 
-        <!-- hotspots -->
-        <div class="hotspot" data-id="ultrasonic" style="top:18%; left:12%;"></div>
-        <div class="hotspot" data-id="hx711" style="top:42%; left:20%;"></div>
-        <div class="hotspot" data-id="arduino" style="top:30%; left:48%;"></div>
-        <div class="hotspot" data-id="lcd" style="top:15%; left:70%;"></div>
-        <div class="hotspot" data-id="rgb" style="top:45%; left:72%;"></div>
-        <div class="hotspot" data-id="haptic" style="top:65%; left:55%;"></div>
-        <div class="hotspot" data-id="gps" style="top:65%; left:80%;"></div>
-        <div class="hotspot" data-id="button" style="top:55%; left:30%;"></div>
-      </div>
-
-      <!-- DESCRIPTIONS -->
-      <div class="map-descriptions">
-
-        <div class="desc" data-id="ultrasonic">
-          <h3>Ultrasonic HC-SR04</h3>
-          <p>Detects obstacles in front of the user and provides distance data for navigation logic.</p>
+Each sensor event is mapped to a specific sound pattern.
+Different tones and beep frequencies allow the user to understand what is happening
+without visual feedback.</p>
         </div>
 
-        <div class="desc" data-id="hx711">
-          <h3>HX711 Pressure Sensor</h3>
-          <p>Measures foot-ground pressure to detect slips and unstable surfaces.</p>
+        <div class="card card-media">
+          <img src="pictures/ardruino uno.png" alt="Arduino Uno illustration (placeholder)" />
+          <h3>Central Control Unit</h3>
+          <p>Arduino Uno acts as the central controller of the system.
+It processes all sensor inputs in real time and decides which feedback
+method should be activated.
+
+A priority-based logic is implemented:
+emergency events have the highest priority,
+slip detection overrides navigation sounds,
+and obstacle feedback works only when no critical events are active.
+</p>
         </div>
 
-        <div class="desc" data-id="arduino">
-          <h3>Arduino Uno</h3>
-          <p>Main controller running real-time firmware and priority-based safety logic.</p>
-        </div>
+        <div class="card card-media">
+          <img src="pictures/compinents.png" alt="Prototype outputs illustration (placeholder)" />
+          <h3>Safety & Feedback Modules</h3>
+          <p>The system uses multiple feedback channels to ensure user safety.
+Audio signals are the primary feedback method, while vibration and
+visual indicators provide additional system status information.
 
-        <div class="desc" data-id="lcd">
-          <h3>LCD 16×2</h3>
-          <p>Displays system status, distance values, and emergency notifications.</p>
-        </div>
-
-        <div class="desc" data-id="rgb">
-          <h3>RGB Status LEDs</h3>
-          <p>Visual system state indicator (normal, warning, emergency).</p>
-        </div>
-
-        <div class="desc" data-id="haptic">
-          <h3>Haptic Feedback Motor</h3>
-          <p>Provides vibration feedback with intensity based on obstacle distance.</p>
-        </div>
-
-        <div class="desc" data-id="gps">
-          <h3>GPS Module</h3>
-          <p>Used for emergency location tracking and SMS simulation.</p>
-        </div>
-
-        <div class="desc" data-id="button">
-          <h3>Emergency Button</h3>
-          <p>Manual emergency trigger with long-press activation logic.</p>
+Each feedback channel has a dedicated role and does not conflict
+with higher-priority alerts.
+</p>
         </div>
 
       </div>
     </div>
-  </div>
-</section>
-
+  </section>
 
 
 
@@ -218,57 +186,34 @@
   <div class="container center">
     <h2 class="section-title">System Architecture</h2>
     <p class="muted max600 center">
-      High-level architecture of the smart-shoe assistive navigation system
+      Real prototype visualization based on Arduino Uno and Wokwi simulation
     </p>
 
-    <!-- ARCHITECTURE DIAGRAM -->
-    <div class="image-block">
-      <svg viewBox="0 0 1200 600" style="width:100%;height:auto;border-radius:16px;" xmlns="http://www.w3.org/2000/svg">
+    <div class="slider-wrapper">
+      <button class="slider-btn left" aria-label="Previous image">‹</button>
 
-        <!-- Background -->
-        <rect width="1200" height="600" fill="#0f172a" rx="20"/>
+      <div class="slider">
+        <img
+          src="pictures/system-overview.png"
+          class="slide active"
+          alt="Smart shoe system overview with all components"
+        />
+        <img
+          src="pictures/system-wiring.png"
+          class="slide"
+          alt="Arduino Uno wiring and sensor connections (Wokwi)"
+        />
+      </div>
 
-        <!-- SENSORS BLOCK -->
-        <rect x="60" y="120" width="260" height="360" rx="18" fill="#111a2e" stroke="#1f2a44" stroke-width="2"/>
-        <text x="190" y="170" fill="#5cc1ff" font-size="20" text-anchor="middle" font-weight="700">Sensors</text>
-        <text x="190" y="210" fill="#9fb0c3" font-size="16" text-anchor="middle">HC-SR04 (Left)</text>
-        <text x="190" y="240" fill="#9fb0c3" font-size="16" text-anchor="middle">HC-SR04 (Center)</text>
-        <text x="190" y="270" fill="#9fb0c3" font-size="16" text-anchor="middle">HC-SR04 (Right)</text>
-        <text x="190" y="300" fill="#9fb0c3" font-size="16" text-anchor="middle">HX711 Pressure Sensor</text>
-
-        <!-- ARDUINO BLOCK -->
-        <rect x="470" y="90" width="260" height="420" rx="18" fill="#111a2e" stroke="#1f2a44" stroke-width="2"/>
-        <text x="600" y="140" fill="#45e5a4" font-size="22" text-anchor="middle" font-weight="700">Arduino Uno</text>
-        <text x="600" y="180" fill="#9fb0c3" font-size="16" text-anchor="middle">Non-blocking loop</text>
-        <text x="600" y="205" fill="#9fb0c3" font-size="16" text-anchor="middle">Distance thresholds</text>
-        <text x="600" y="230" fill="#9fb0c3" font-size="16" text-anchor="middle">Slip trend analysis</text>
-        <text x="600" y="255" fill="#9fb0c3" font-size="16" text-anchor="middle">Priority scheduler</text>
-        <text x="600" y="280" fill="#9fb0c3" font-size="16" text-anchor="middle">Serial debug + mock GPS</text>
-
-        <!-- FEEDBACK BLOCK -->
-        <rect x="880" y="120" width="260" height="360" rx="18" fill="#111a2e" stroke="#1f2a44" stroke-width="2"/>
-        <text x="1010" y="170" fill="#5cc1ff" font-size="20" text-anchor="middle" font-weight="700">Feedback</text>
-        <text x="1010" y="210" fill="#9fb0c3" font-size="16" text-anchor="middle">Vibration Motor</text>
-        <text x="1010" y="240" fill="#9fb0c3" font-size="16" text-anchor="middle">Piezo Buzzer</text>
-        <text x="1010" y="270" fill="#9fb0c3" font-size="16" text-anchor="middle">RGB LED Indicator</text>
-        <text x="1010" y="300" fill="#9fb0c3" font-size="16" text-anchor="middle">LCD 16x2 Status</text>
-
-        <!-- ARROWS -->
-        <line x1="320" y1="300" x2="470" y2="300" stroke="#45e5a4" stroke-width="4" marker-end="url(#arrow)"/>
-        <line x1="730" y1="300" x2="880" y2="300" stroke="#45e5a4" stroke-width="4" marker-end="url(#arrow)"/>
-
-        <!-- Arrow Marker -->
-        <defs>
-          <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
-            <polygon points="0 0, 8 3, 0 6" fill="#45e5a4"/>
-          </marker>
-        </defs>
-
-      </svg>
+      <button class="slider-btn right" aria-label="Next image">›</button>
     </div>
 
+    <p class="muted small center" style="margin-top:12px;">
+      Swipe or use arrows to view system overview and wiring details
+    </p>
   </div>
 </section>
+
 
 
   <!-- WORKFLOW -->
@@ -791,22 +736,6 @@
     </video>
 
     <p class="muted small center">Slip detection and sound feedback demonstration</p>
-  </div>
-</section>
-
-<!-- ================= PERFORMANCE ================= -->
-<section id="performance" class="section alt">
-  <div class="container center">
-    <h2 class="section-title">Performance Metrics</h2>
-
-    <div class="performance-grid">
-      <div class="perf-card"><h3>3× HC-SR04</h3><p>Directional obstacle sensing</p></div>
-      <div class="perf-card"><h3>HX711</h3><p>Pressure trend slip warning</p></div>
-      <div class="perf-card"><h3>Non-blocking</h3><p>millis()-based task scheduling</p></div>
-      <div class="perf-card"><h3>Emergency</h3><p>Long-press button override</p></div>
-      <div class="perf-card"><h3>LCD 16x2</h3><p>Live status + debug text</p></div>
-      <div class="perf-card"><h3>Serial Sim</h3><p>Mock GPS and voice output</p></div>
-    </div>
   </div>
 </section>
 
