@@ -650,3 +650,107 @@ tbody tr:nth-child(even) {
   .hero-stats { grid-template-columns: 1fr; }
   .section { padding: 68px 0; }
 }
+
+/* ===============================
+   HERO FIX — LAYOUT & ALIGNMENT
+   =============================== */
+
+.hero {
+  padding-top: 120px;
+  padding-bottom: 100px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* TEXT SIDE */
+.hero-text h1 {
+  font-size: clamp(36px, 4vw, 52px);
+  line-height: 1.1;
+}
+
+.hero-text p {
+  max-width: 560px;
+  font-size: 18px;
+}
+
+/* CHIPS */
+.hero-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.chip {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+}
+
+/* CTA */
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+/* STATS */
+.hero-stats {
+  display: flex;
+  gap: 32px;
+  margin-top: 32px;
+}
+
+.stat-num {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.stat-label {
+  font-size: 13px;
+  opacity: 0.75;
+}
+
+/* MEDIA CARD */
+.hero-media {
+  position: relative;
+  padding: 24px;
+}
+
+.hero-media img {
+  width: 100%;
+  max-width: 420px;
+  display: block;
+  margin: 0 auto;
+}
+
+.media-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: rgba(0,0,0,0.6);
+  padding: 6px 10px;
+  font-size: 12px;
+  border-radius: 6px;
+}
+
+.media-footnote {
+  text-align: center;
+  font-size: 13px;
+  opacity: 0.7;
+  margin-top: 12px;
+}

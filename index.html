@@ -633,39 +633,168 @@
 
 
 
-  <!-- ADVANCED FOOTER -->
-  <footer class="footer-advanced">
+  <!-- ================= MY CONTRIBUTION ================= -->
+<section id="contribution" class="section alt">
+  <div class="container">
+    <h2 class="section-title">My Contribution — Firmware & Safety Logic</h2>
 
-    <div class="container footer-grid">
+    <p class="muted center max600">
+      I was responsible for designing and implementing the core firmware logic,
+      focusing on safety, priority handling and intuitive feedback for blind users.
+    </p>
 
-      <div class="footer-column">
-        <h4>Project Navigation</h4>
-        <a href="#hero">Overview</a>
-        <a href="#mission">Problem & Solution</a>
-        <a href="#devices">Technology</a>
-        <a href="#performance">Performance</a>
+    <div class="cards two">
+      <div class="card">
+        <h3>Non-Blocking Firmware</h3>
+        <p>
+          I implemented all logic using non-blocking timers instead of delays,
+          ensuring stable real-time behavior even with multiple active sensors.
+        </p>
       </div>
 
-      <div class="footer-column">
-        <h4>Institution</h4>
-        <a href="https://en.sejong.ac.kr/eng/index.do" target="_blank">Sejong University</a>
-        <a href="https://en.sejong.ac.kr/eng/academics/Electronics_and_Information_Engineering.do" target="_blank">Department of CS</a>
+      <div class="card">
+        <h3>Priority-Based Architecture</h3>
+        <p>
+          Emergency alerts override all systems, slip detection overrides navigation,
+          and obstacle feedback is enabled only when no higher-priority event is active.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SLIP DETECTION ================= -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Slip Detection Using Pressure Sensor</h2>
+
+    <div class="cards two">
+      <div class="card">
+        <h3>Detection Logic</h3>
+        <ul class="bullets">
+          <li>Pressure below safe minimum</li>
+          <li>Sudden pressure drop between steps</li>
+          <li>Loss of stable contact over time</li>
+        </ul>
       </div>
 
-      <div class="footer-column">
-        <h4>Resources</h4>
-        <a href="https://github.com/qwfsgdh/iot-project" target="_blank">GitHub Repository</a>
-        <a href="https://www.mdpi.com/2076-3417/7/10/986" target="_blank">Technical Docs</a>
-        <a href="https://www.techscience.com/cmc/v76n1/53058" target="_blank">Research Papers</a>
+      <div class="card">
+        <h3>Why It Matters</h3>
+        <p>
+          Slippery surfaces are one of the most dangerous scenarios for blind users.
+          Early detection significantly reduces fall risk.
+        </p>
       </div>
-
     </div>
 
-    <div class="footer-bottom">
-      <p>© 2025 IoT Project — Designed by Shipulin Arslan</p>
+    <!-- IMAGE -->
+    <div class="image-block">
+      <img src="pictures/HX711.png" alt="Slip detection in Wokwi simulation">
+      <p class="muted small center">Slip detection logic tested in Wokwi simulator</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SOUND LOGIC ================= -->
+<section class="section alt">
+  <div class="container">
+    <h2 class="section-title">Adaptive Sound Feedback</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Event</th>
+          <th>Sound Pattern</th>
+          <th>Purpose</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Emergency</td>
+          <td>Low-frequency repeating tone</td>
+          <td>Immediate critical alert</td>
+        </tr>
+        <tr>
+          <td>Slip</td>
+          <td>High-frequency double beep</td>
+          <td>Surface danger warning</td>
+        </tr>
+        <tr>
+          <td>Obstacle</td>
+          <td>Beep speed increases as distance decreases</td>
+          <td>Spatial navigation</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="image-block">
+      <img src="pictures/sound-patterns.png" alt="Sound pattern diagram">
+    </div>
+  </div>
+</section>
+
+<!-- ================= VIDEO ================= -->
+<section class="section">
+  <div class="container center">
+    <h2 class="section-title">Demo Video</h2>
+
+    <!-- Replace with your own video -->
+    <video controls style="width:100%;max-width:720px;border-radius:16px;">
+      <source src="pictures/Запись-экрана-2025-12-14-в-16.08.22.mp4" type="video/mp4">
+      Your browser does not support video.
+    </video>
+
+    <p class="muted small center">Slip detection and sound feedback demonstration</p>
+  </div>
+</section>
+
+<!-- ================= PERFORMANCE ================= -->
+<section id="performance" class="section alt">
+  <div class="container center">
+    <h2 class="section-title">Performance Metrics</h2>
+
+    <div class="performance-grid">
+      <div class="perf-card"><h3>95%+</h3><p>Detection accuracy</p></div>
+      <div class="perf-card"><h3>&lt;100ms</h3><p>Latency</p></div>
+      <div class="perf-card"><h3>8+ hrs</h3><p>Battery life</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= IMPACT ================= -->
+<section id="impact" class="section">
+  <div class="container center">
+    <h2 class="section-title">Impact</h2>
+    <p class="muted max600">
+      This project demonstrates how thoughtful firmware design and sensor logic
+      can directly improve safety and independence for visually impaired users.
+    </p>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer-advanced">
+  <div class="container footer-grid">
+    <div class="footer-column">
+      <h4>Project</h4>
+      <a href="#hero">Overview</a>
+      <a href="#contribution">My Work</a>
     </div>
 
-  </footer>
+    <div class="footer-column">
+      <h4>Author</h4>
+      <p>Arslan Shipulin</p>
+      <p>Sejong University</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 IoT Smart Shoes Project</p>
+  </div>
+</footer>
+
+</body>
+</html>
 
 
   <script src="script.js"></script>
