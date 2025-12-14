@@ -32,16 +32,17 @@
   <section id="hero" class="hero section">
     <div class="container hero-grid">
       <div class="hero-text">
-        <div class="eyebrow">Assistive navigation footwear • Sejong University</div>
-        <h1>Smart Shoes for Blind People</h1>
+        <div class="eyebrow">Assistive navigation footwear • Arduino Uno prototype</div>
+        <h1>Smart Shoes for Safe, Guided Walking</h1>
         <p>
-          An intelligent IoT-based assistive navigation system that empowers independence
-          and confidence for visually impaired individuals.
+          A university-built assistive navigation system that uses an Arduino Uno, three ultrasonic sensors,
+          and a pressure-based slip detector to support safe movement for visually impaired users.
         </p>
         <div class="hero-chips">
-          <span class="chip">ESP32 RTOS firmware</span>
-          <span class="chip">LiDAR + Ultrasonic fusion</span>
-          <span class="chip">Haptic & audio feedback</span>
+          <span class="chip">Arduino Uno non-blocking firmware</span>
+          <span class="chip">3× HC-SR04 (left/center/right)</span>
+          <span class="chip">HX711 pressure slip detection</span>
+          <span class="chip">Buzzer • Vibration • RGB LED • LCD 16x2</span>
         </div>
         <div class="hero-cta">
           <a class="btn" href="#projects">Explore Project ↓</a>
@@ -50,24 +51,24 @@
         </div>
         <div class="hero-stats">
           <div class="stat">
-            <div class="stat-num">95%+</div>
-            <p class="stat-label">Obstacle detection accuracy</p>
+            <div class="stat-num">3 zones</div>
+            <p class="stat-label">Ultrasonic coverage: left, center, right</p>
           </div>
           <div class="stat">
-            <div class="stat-num">150 cm</div>
-            <p class="stat-label">Active sensing range</p>
+            <div class="stat-num">HX711</div>
+            <p class="stat-label">Pressure trends for slip detection</p>
           </div>
           <div class="stat">
-            <div class="stat-num">&lt;100 ms</div>
-            <p class="stat-label">Real-time feedback latency</p>
+            <div class="stat-num">Priority loop</div>
+            <p class="stat-label">Non-blocking alert scheduling</p>
           </div>
         </div>
       </div>
 
       <div class="hero-media card">
-        <div class="media-badge">Built & validated with real users</div>
-        <img src="pictures/main-picture.png" alt="Smart Shoe Device" />
-        <div class="media-footnote">GPS • LiDAR • Ultrasonic • Vibration Motors</div>
+        <div class="media-badge">Built and evaluated in university tests</div>
+        <img src="pictures/main-picture.png" alt="Smart shoe prototype (placeholder image)" />
+        <div class="media-footnote">Arduino Uno • 3× HC-SR04 • HX711 • Buzzer • Motor • RGB LED • LCD 16x2</div>
       </div>
     </div>
   </section>
@@ -113,21 +114,21 @@
       <div class="cards three">
 
         <div class="card card-media">
-          <img src="pictures/lidar.png" alt="Lidar sensor" />
-          <h3>Obstacle Detection</h3>
-          <p>Ultrasonic and LIDAR sensors continuously scan 15–150 cm in front of the user, detecting ground and upper-level obstacles.</p>
+          <img src="pictures/lidar.png" alt="Ultrasonic sensor illustration (placeholder)" />
+          <h3>Directional Obstacle Sensing</h3>
+          <p>Three HC-SR04 ultrasonic sensors (left, center, right) monitor near-field distance to identify obstacles in front of the user.</p>
         </div>
 
         <div class="card card-media">
-          <img src="pictures/esp32.png" alt="ESP32" />
-          <h3>Adaptive Signal System</h3>
-          <p>ESP32 processes sensor data in real-time, adjusting vibration feedback intensity as obstacles get closer.</p>
+          <img src="pictures/esp32.png" alt="Arduino Uno illustration (placeholder)" />
+          <h3>Non-Blocking Control Loop</h3>
+          <p>Arduino Uno processes all sensors in a non-blocking loop, prioritizing safety alerts before distance-based navigation feedback.</p>
         </div>
 
         <div class="card card-media">
-          <img src="pictures/gps.png" alt="GPS module" />
-          <h3>GPS Emergency Tracking</h3>
-          <p>GPS NEO-6M enables emergency location broadcasting with ±5m accuracy and optional WiFi/Bluetooth transmission.</p>
+          <img src="pictures/gps.png" alt="Prototype outputs illustration (placeholder)" />
+          <h3>Haptic/Audio Outputs</h3>
+          <p>Buzzer, vibration motor, RGB LED, and LCD 16x2 deliver layered cues; GPS/voice are simulated via Serial for testing.</p>
         </div>
 
       </div>
@@ -140,28 +141,28 @@
   <section id="impact" class="section alt">
     <div class="container">
       <h2 class="section-title">Impact and Future Development</h2>
-      <p class="muted center max600">Our vision for the future of assistive navigation technology</p>
+      <p class="muted center max600">An academic prototype focused on dependable, explainable behavior rather than hype</p>
 
       <div class="cards two">
 
         <div class="card">
-          <h3>Validated Effectiveness</h3>
-          <p>95%+ detection accuracy validated through extensive indoor/outdoor testing.</p>
+          <h3>Evidence-First Testing</h3>
+          <p>Indoor corridor trials verified that priority alerts (emergency/slip) always pre-empt navigation beeps.</p>
         </div>
 
         <div class="card">
-          <h3>User-Centered Design</h3>
-          <p>Developed with continuous feedback from visually impaired individuals.</p>
+          <h3>Transparent Outputs</h3>
+          <p>LCD shows current mode and detected states so evaluators can trace firmware decisions in real time.</p>
         </div>
 
         <div class="card">
-          <h3>Open Source Contribution</h3>
-          <p>Hardware, firmware, and documentation will be available on GitHub.</p>
+          <h3>Simulation Where Needed</h3>
+          <p>GPS and voice are simulated over Serial to validate logic without overstating hardware capabilities.</p>
         </div>
 
         <div class="card">
           <h3>Future Enhancements</h3>
-          <p>ML classification, smarter route planning, and enhanced wireless connectivity.</p>
+          <p>Add real GPS module, recorded voice prompts, and wireless logging once the core safety loop is fully validated.</p>
         </div>
 
       </div>
@@ -185,27 +186,27 @@
         <!-- SENSORS BLOCK -->
         <rect x="60" y="120" width="260" height="360" rx="18" fill="#111a2e" stroke="#1f2a44" stroke-width="2"/>
         <text x="190" y="170" fill="#5cc1ff" font-size="20" text-anchor="middle" font-weight="700">Sensors</text>
-        <text x="190" y="210" fill="#9fb0c3" font-size="16" text-anchor="middle">Ultrasonic HC-SR04</text>
-        <text x="190" y="240" fill="#9fb0c3" font-size="16" text-anchor="middle">LiDAR TFmini Plus</text>
-        <text x="190" y="270" fill="#9fb0c3" font-size="16" text-anchor="middle">IMU / Accelerometer</text>
-        <text x="190" y="300" fill="#9fb0c3" font-size="16" text-anchor="middle">GPS NEO-6M</text>
+        <text x="190" y="210" fill="#9fb0c3" font-size="16" text-anchor="middle">HC-SR04 (Left)</text>
+        <text x="190" y="240" fill="#9fb0c3" font-size="16" text-anchor="middle">HC-SR04 (Center)</text>
+        <text x="190" y="270" fill="#9fb0c3" font-size="16" text-anchor="middle">HC-SR04 (Right)</text>
+        <text x="190" y="300" fill="#9fb0c3" font-size="16" text-anchor="middle">HX711 Pressure Sensor</text>
 
-        <!-- ESP32 BLOCK -->
+        <!-- ARDUINO BLOCK -->
         <rect x="470" y="90" width="260" height="420" rx="18" fill="#111a2e" stroke="#1f2a44" stroke-width="2"/>
-        <text x="600" y="140" fill="#45e5a4" font-size="22" text-anchor="middle" font-weight="700">ESP32 Processor</text>
-        <text x="600" y="180" fill="#9fb0c3" font-size="16" text-anchor="middle">Dual-core 240MHz</text>
-        <text x="600" y="205" fill="#9fb0c3" font-size="16" text-anchor="middle">Real-Time Processing</text>
-        <text x="600" y="230" fill="#9fb0c3" font-size="16" text-anchor="middle">Noise Filtering</text>
-        <text x="600" y="255" fill="#9fb0c3" font-size="16" text-anchor="middle">Distance Classification</text>
-        <text x="600" y="280" fill="#9fb0c3" font-size="16" text-anchor="middle">Emergency Logic</text>
+        <text x="600" y="140" fill="#45e5a4" font-size="22" text-anchor="middle" font-weight="700">Arduino Uno</text>
+        <text x="600" y="180" fill="#9fb0c3" font-size="16" text-anchor="middle">Non-blocking loop</text>
+        <text x="600" y="205" fill="#9fb0c3" font-size="16" text-anchor="middle">Distance thresholds</text>
+        <text x="600" y="230" fill="#9fb0c3" font-size="16" text-anchor="middle">Slip trend analysis</text>
+        <text x="600" y="255" fill="#9fb0c3" font-size="16" text-anchor="middle">Priority scheduler</text>
+        <text x="600" y="280" fill="#9fb0c3" font-size="16" text-anchor="middle">Serial debug + mock GPS</text>
 
         <!-- FEEDBACK BLOCK -->
         <rect x="880" y="120" width="260" height="360" rx="18" fill="#111a2e" stroke="#1f2a44" stroke-width="2"/>
         <text x="1010" y="170" fill="#5cc1ff" font-size="20" text-anchor="middle" font-weight="700">Feedback</text>
-        <text x="1010" y="210" fill="#9fb0c3" font-size="16" text-anchor="middle">Vibration Motors</text>
+        <text x="1010" y="210" fill="#9fb0c3" font-size="16" text-anchor="middle">Vibration Motor</text>
         <text x="1010" y="240" fill="#9fb0c3" font-size="16" text-anchor="middle">Piezo Buzzer</text>
-        <text x="1010" y="270" fill="#9fb0c3" font-size="16" text-anchor="middle">Optional Speaker</text>
-        <text x="1010" y="300" fill="#9fb0c3" font-size="16" text-anchor="middle">Adaptive Intensity</text>
+        <text x="1010" y="270" fill="#9fb0c3" font-size="16" text-anchor="middle">RGB LED Indicator</text>
+        <text x="1010" y="300" fill="#9fb0c3" font-size="16" text-anchor="middle">LCD 16x2 Status</text>
 
         <!-- ARROWS -->
         <line x1="320" y1="300" x2="470" y2="300" stroke="#45e5a4" stroke-width="4" marker-end="url(#arrow)"/>
@@ -234,22 +235,22 @@
 
         <div class="card">
           <h3>Environmental Sensing</h3>
-          <p>HC-SR04 and TFmini Plus LiDAR scan a 120° field-of-view with millisecond updates.</p>
+          <p>Three HC-SR04 modules poll left/center/right distances in a staggered schedule to avoid crosstalk.</p>
         </div>
 
         <div class="card">
           <h3>Data Processing</h3>
-          <p>ESP32 analyzes incoming sensor streams and filters noise before classification.</p>
+          <p>Arduino Uno runs a non-blocking loop with time-sliced tasks, applying distance thresholds and debounce windows.</p>
         </div>
 
         <div class="card">
           <h3>Location Tracking</h3>
-          <p>GPS NEO-6M maintains continuous positioning and supports emergency alerts.</p>
+          <p>GPS/voice outputs are simulated over Serial to test messaging flows without extra hardware.</p>
         </div>
 
         <div class="card">
           <h3>Feedback Generation</h3>
-          <p>Vibration motors + buzzer output layered notifications depending on urgency.</p>
+          <p>Buzzer, vibration motor, RGB LED, and LCD work together to convey obstacle distance and alerts.</p>
         </div>
 
       </div>
@@ -269,72 +270,72 @@
       <div class="card">
         <h3>Processing Unit</h3>
         <ul class="bullets">
-          <li>ESP32-WROVER-B Module</li>
-          <li>Dual-core Xtensa LX6 @ 240MHz</li>
-          <li>520KB SRAM, 4MB Flash</li>
-          <li>Wi-Fi 802.11 b/g/n (2.4GHz)</li>
-          <li>Bluetooth 5.0 + BLE</li>
-          <li>Real-Time OS (FreeRTOS)</li>
+          <li>Arduino Uno (ATmega328P)</li>
+          <li>16 MHz loop with non-blocking timing (millis)</li>
+          <li>Priority scheduling for safety alerts</li>
+          <li>Serial logging + mock GPS/voice output</li>
+          <li>Debounce for emergency button (long press)</li>
+          <li>LCD 16x2 for status and debug text</li>
         </ul>
       </div>
 
       <div class="card">
         <h3>Sensor Array</h3>
         <ul class="bullets">
-          <li>HC-SR04 Ultrasonic Sensor (40kHz)</li>
-          <li>TFmini Plus LiDAR</li>
-          <li>GPS NEO-6M (±5m accuracy)</li>
-          <li>IMU & 3-Axis Accelerometer</li>
-          <li>Detection Range: 15–150cm</li>
-          <li>120° Horizontal Field of View</li>
+          <li>3× HC-SR04 (left / center / right)</li>
+          <li>Staggered triggering to reduce crosstalk</li>
+          <li>HX711 + pressure pad for slip tendency</li>
+          <li>Typical useful range: ~20–120 cm indoors</li>
+          <li>Emergency button (long press)</li>
+          <li>Serial mock GPS/voice messages</li>
         </ul>
       </div>
 
       <div class="card">
         <h3>Feedback Systems</h3>
         <ul class="bullets">
-          <li>Piezo Buzzer (80Hz–16kHz)</li>
-          <li>3× Directional Vibration Motors</li>
-          <li>Optional Speaker Output</li>
-          <li>Adaptive Intensity Control</li>
-          <li>Multi-Pattern Alert Modes</li>
-          <li>Response Latency: &lt;100ms</li>
+          <li>Piezo buzzer with distance-based beep rate</li>
+          <li>Single vibration motor for close obstacles</li>
+          <li>RGB LED color codes per priority</li>
+          <li>LCD 16x2 textual cues</li>
+          <li>Serial prompts for simulated voice/GPS</li>
+          <li>Manual emergency alert pattern</li>
         </ul>
       </div>
 
       <div class="card">
         <h3>Power Management</h3>
         <ul class="bullets">
-          <li>3000mAh Li-Po Battery</li>
-          <li>8+ Hours Operation</li>
-          <li>Fast Charging (≈2 hours)</li>
-          <li>Dynamic Power Optimization</li>
-          <li>Low Battery Warning System</li>
-          <li>Efficiency: &gt;99%</li>
+          <li>5V supply (USB/power bank)</li>
+          <li>On/off control in firmware</li>
+          <li>Focus on low-blocking code vs. power tuning</li>
+          <li>LED/buzzer duty cycling to reduce draw</li>
+          <li>Future: add measured current profile</li>
+          <li>Future: battery-backed portable enclosure</li>
         </ul>
       </div>
 
       <div class="card">
         <h3>Physical Specifications</h3>
         <ul class="bullets">
-          <li>Weight: &lt;200g per shoe</li>
-          <li>Water Resistance: IP54</li>
-          <li>Operating Temp: −10°C to +50°C</li>
-          <li>Ergonomic In-Shoe Form Factor</li>
-          <li>Durable ABS Housing</li>
-          <li>Modular Replaceable Parts</li>
+          <li>Prototype mounted on shoe mock-up</li>
+          <li>Wiring via breadboard for evaluation</li>
+          <li>Sensor brackets oriented forward</li>
+          <li>Accessible emergency button on upper</li>
+          <li>LCD and LED visible to evaluator</li>
+          <li>Next step: integrated insole layout</li>
         </ul>
       </div>
 
       <div class="card">
         <h3>Software Features</h3>
         <ul class="bullets">
-          <li>Real-Time Obstacle Classification</li>
-          <li>Edge-AI Processing</li>
-          <li>Adaptive Filtering Algorithms</li>
-          <li>GPS Data Logging</li>
-          <li>Emergency Alert Broadcasting</li>
-          <li>OTA Firmware Updates</li>
+          <li>Priority-based alert scheduler</li>
+          <li>Slip detection via pressure trends</li>
+          <li>Adaptive beep intervals vs. distance</li>
+          <li>Non-blocking timing (no delay calls)</li>
+          <li>Serial logs for evaluation and grading</li>
+          <li>Configurable thresholds in code</li>
         </ul>
       </div>
 
@@ -512,19 +513,19 @@
 
       <div class="performance-grid">
 
-        <div class="perf-card"><h3>95%+</h3><p>Detection Accuracy</p></div>
-        <div class="perf-card"><h3>150cm</h3><p>Max Range</p></div>
-        <div class="perf-card"><h3>&lt;100ms</h3><p>Response Time</p></div>
-        <div class="perf-card"><h3>8+hrs</h3><p>Battery Life</p></div>
-        <div class="perf-card"><h3>±5m</h3><p>GPS Accuracy</p></div>
-        <div class="perf-card"><h3>&lt;200g</h3><p>System Weight</p></div>
+        <div class="perf-card"><h3>3× HC-SR04</h3><p>Directional obstacle sensing</p></div>
+        <div class="perf-card"><h3>HX711</h3><p>Pressure trend slip warning</p></div>
+        <div class="perf-card"><h3>Non-blocking</h3><p>millis()-based task scheduling</p></div>
+        <div class="perf-card"><h3>Emergency</h3><p>Long-press button override</p></div>
+        <div class="perf-card"><h3>LCD 16x2</h3><p>Live status + debug text</p></div>
+        <div class="perf-card"><h3>Serial Sim</h3><p>Mock GPS and voice output</p></div>
 
       </div>
 
       <div class="performance-image-block">
-        <img src="pictures/performance-diagram.png" alt="Performance Diagram">
+        <img src="pictures/performance-diagram.png" alt="Prototype block diagram (placeholder)">
         <p class="muted small center">
-          Wearable assistive navigation system with advanced sensor integration.
+          Prototype-level assistive navigation system; image is a placeholder illustration.
         </p>
       </div>
     </div>
@@ -602,12 +603,12 @@
         <h3>Mahmudkhon Usmonov</h3>
         <p class="muted small" style="margin-top:-6px;">Embedded & Software Engineer</p>
         <ul class="bullets">
-          <li>Firmware development for ESP32 (C/C++)</li>
-          <li>Sensor data acquisition & filtering</li>
-          <li>Real-time obstacle classification algorithms</li>
-          <li>GPS, LiDAR & ultrasonic module integration</li>
-          <li>Emergency alert communication</li>
-          <li>OTA updates & system optimization</li>
+          <li>Firmware development for Arduino Uno (C/C++)</li>
+          <li>Sensor data acquisition & timing (HC-SR04)</li>
+          <li>Slip trend analysis using HX711 pressure sensor</li>
+          <li>Emergency button handling and alerts</li>
+          <li>Serial mock GPS/voice outputs for evaluation</li>
+          <li>Non-blocking loop design and tuning</li>
         </ul>
       </div>
 
@@ -616,11 +617,11 @@
         <h3>Fyodor Amanov</h3>
         <p class="muted small" style="margin-top:-6px;">Hardware Engineer</p>
         <ul class="bullets">
-          <li>Sensor array integration (LiDAR, ultrasonic, GPS)</li>
+          <li>Sensor array integration (3× ultrasonic + pressure)</li>
           <li>Power system design & battery management</li>
           <li>PCB wiring, hardware assembly & enclosure work</li>
           <li>Physical testing of durability & stability</li>
-          <li>Component selection & optimization</li>
+          <li>Component selection & mounting orientation</li>
           <li>Hardware debugging & signal validation</li>
         </ul>
       </div>
