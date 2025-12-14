@@ -28,7 +28,7 @@
       if(e.isIntersecting) e.target.classList.add('in');
     });
   }, {threshold: 0.15});
-  document.querySelectorAll('.card, .section-title, .hero-text, .hero-media').forEach(el=>{
+  document.querySelectorAll('.card, .perf-card, .stat, .section-title, .hero-text, .hero-media').forEach(el=>{
     el.classList.add('fade');
     observer.observe(el);
   });

@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -22,7 +22,7 @@
         <a href="#projects">Workflow</a>
         <a href="#performance">Performance</a>
         <a href="#team">Team</a>
-        <a class="btn sm" href="#section alt">Impact</a>
+        <a class="btn sm" href="#impact">Impact</a>
       </nav>
     </div>
   </header>
@@ -32,19 +32,42 @@
   <section id="hero" class="hero section">
     <div class="container hero-grid">
       <div class="hero-text">
+        <div class="eyebrow">Assistive navigation footwear • Sejong University</div>
         <h1>Smart Shoes for Blind People</h1>
         <p>
           An intelligent IoT-based assistive navigation system that empowers independence
           and confidence for visually impaired individuals.
         </p>
+        <div class="hero-chips">
+          <span class="chip">ESP32 RTOS firmware</span>
+          <span class="chip">LiDAR + Ultrasonic fusion</span>
+          <span class="chip">Haptic & audio feedback</span>
+        </div>
         <div class="hero-cta">
           <a class="btn" href="#projects">Explore Project ↓</a>
-          <a class="btn ghost" href="#section alt">Impact</a>
+          <a class="btn ghost" href="#impact">Impact</a>
+          <a class="btn ghost" href="Shipulin's work.pdf" target="_blank">Open PDF ↗</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-num">95%+</div>
+            <p class="stat-label">Obstacle detection accuracy</p>
+          </div>
+          <div class="stat">
+            <div class="stat-num">150 cm</div>
+            <p class="stat-label">Active sensing range</p>
+          </div>
+          <div class="stat">
+            <div class="stat-num">&lt;100 ms</div>
+            <p class="stat-label">Real-time feedback latency</p>
+          </div>
         </div>
       </div>
 
       <div class="hero-media card">
+        <div class="media-badge">Built & validated with real users</div>
         <img src="pictures/main-picture.png" alt="Smart Shoe Device" />
+        <div class="media-footnote">GPS • LiDAR • Ultrasonic • Vibration Motors</div>
       </div>
     </div>
   </section>
@@ -114,7 +137,7 @@
 
 
   <!-- IMPACT & FUTURE -->
-  <section class="section alt">
+  <section id="impact" class="section alt">
     <div class="container">
       <h2 class="section-title">Impact and Future Development</h2>
       <p class="muted center max600">Our vision for the future of assistive navigation technology</p>
@@ -319,11 +342,155 @@
   </div>
 </section>
 
+<section id="my-contribution" class="section">
+  <div class="container">
+    <h2 class="section-title">My Contribution: Firmware & Safety Logic</h2>
+
+    <p class="muted center max600">
+      This section highlights my personal contribution to the project, focusing on embedded logic,
+      sensor behavior modeling, and real-time safety prioritization.
+    </p>
+
+    <div class="cards two">
+
+      <div class="card">
+        <h3>Embedded Firmware Design</h3>
+        <p>
+          I developed the core firmware logic responsible for processing sensor data in real time.
+          The system continuously analyzes ultrasonic distance measurements and pressure sensor readings
+          without blocking delays, ensuring stable and responsive behavior.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Priority-Based Safety System</h3>
+        <p>
+          A strict priority hierarchy was implemented to prevent conflicting feedback.
+          Emergency alerts override all signals, slip detection overrides navigation sounds,
+          and obstacle feedback is enabled only when no higher-priority event is active.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="slip-detection" class="section alt">
+  <div class="container">
+    <h2 class="section-title">Slip Detection Using Pressure Sensor</h2>
+
+    <p class="muted center max600">
+      Detection of unsafe or slippery surfaces using dynamic pressure analysis
+    </p>
+
+    <div class="cards two">
+
+      <div class="card">
+        <h3>How the Sensor Works</h3>
+        <p>
+          The pressure sensor continuously measures foot-ground contact force.
+          Instead of using a single threshold, the firmware analyzes pressure trends
+          and time-based behavior to detect abnormal patterns.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Slip Detection Conditions</h3>
+        <ul class="bullets">
+          <li>Pressure drops below a safe minimum value</li>
+          <li>Sudden pressure decrease between steps</li>
+          <li>Loss of stable contact for a defined time window</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <p class="center muted max600" style="margin-top:24px;">
+      When a slip is detected, the system immediately disables navigation sounds
+      and triggers a dedicated warning pattern to alert the user.
+    </p>
+  </div>
+</section>
+
+<section id="sound-logic" class="section">
+  <div class="container">
+    <h2 class="section-title">Adaptive Sound Feedback Logic</h2>
+
+    <p class="muted center max600">
+      Intuitive audio feedback designed for navigation without visual cues
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Event Type</th>
+          <th>Sound Pattern</th>
+          <th>Purpose</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Emergency</td>
+          <td>Low-frequency slow repeating tone</td>
+          <td>Immediate critical alert</td>
+        </tr>
+        <tr>
+          <td>Slip Detection</td>
+          <td>High-frequency double beep</td>
+          <td>Surface instability warning</td>
+        </tr>
+        <tr>
+          <td>Obstacle Navigation</td>
+          <td>Beep speed increases as distance decreases</td>
+          <td>Spatial distance awareness</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="center muted max600" style="margin-top:24px;">
+      For obstacle detection, the closer the obstacle is, the faster the sound interval becomes,
+      creating an intuitive audio representation of distance.
+    </p>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="container">
+    <h2 class="section-title">Why This Firmware Logic Matters</h2>
+
+    <p class="muted center max600">
+      Engineering decisions behind the safety and usability of the system
+    </p>
+
+    <div class="cards two">
+
+      <div class="card">
+        <h3>User Safety</h3>
+        <p>
+          By separating alerts into clear priority levels, the system avoids
+          overwhelming the user with multiple signals and ensures that
+          critical events are always clearly communicated.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Real-Time Reliability</h3>
+        <p>
+          All logic is implemented using non-blocking timers instead of delays,
+          allowing stable operation and fast response times even under
+          multiple simultaneous sensor inputs.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 
   <!-- TECHNICAL SPEC GRAPHIC -->
   <section class="section">
     <div class="container center">
-      <h2 class="section-title">System Architecture</h2>
+      <h2 class="section-title">Sensor Fusion Map</h2>
       <p class="muted max600 center">
         High-level visualization of how sensors, processing, and feedback modules interact
       </p>
