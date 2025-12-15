@@ -623,11 +623,18 @@ interval = map(distance,
 </section>
 
 <!-- ================= SOUND LOGIC ================= -->
-<section class="section alt">
+<section class="section alt" id="sound-logic">
   <div class="container">
     <h2 class="section-title">Adaptive Sound Feedback</h2>
 
-    <table>
+    <p class="muted center max600">
+      Audio feedback is the primary communication channel of the system.
+      Different sound patterns are used to represent navigation, surface danger,
+      and emergency states without requiring visual attention.
+    </p>
+
+    <!-- SUMMARY TABLE -->
+    <table class="sound-table">
       <thead>
         <tr>
           <th>Event</th>
@@ -637,9 +644,9 @@ interval = map(distance,
       </thead>
       <tbody>
         <tr>
-          <td>Emergency</td>
-          <td>Low-frequency repeating tone</td>
-          <td>Immediate critical alert</td>
+          <td>Obstacle</td>
+          <td>Beep speed increases as distance decreases</td>
+          <td>Spatial navigation</td>
         </tr>
         <tr>
           <td>Slip</td>
@@ -647,63 +654,113 @@ interval = map(distance,
           <td>Surface danger warning</td>
         </tr>
         <tr>
-          <td>Obstacle</td>
-          <td>Beep speed increases as distance decreases</td>
-          <td>Spatial navigation</td>
+          <td>Emergency</td>
+          <td>Low-frequency repeating tone</td>
+          <td>Immediate critical alert</td>
         </tr>
       </tbody>
     </table>
 
-    <div class="image-block">
-      <img src="pictures/sound-patterns.png" alt="Sound pattern diagram">
+    <!-- VISUAL EXPLANATIONS -->
+    <div class="cards three" style="margin-top:48px;">
+
+      <!-- OBSTACLE -->
+      <div class="card">
+        <h3>Obstacle Navigation</h3>
+
+        <svg viewBox="0 0 800 360" width="100%">
+          <line x1="80" y1="40" x2="80" y2="300" stroke="#9fb0c3" stroke-width="2"/>
+          <line x1="80" y1="300" x2="760" y2="300" stroke="#9fb0c3" stroke-width="2"/>
+
+          <text x="20" y="160" fill="#9fb0c3" font-size="14" transform="rotate(-90 20 160)">
+            Beep frequency
+          </text>
+          <text x="360" y="340" fill="#9fb0c3" font-size="14">
+            Distance to obstacle
+          </text>
+
+          <path d="M100 220 C160 180 220 260 280 220
+                   C340 180 400 260 460 220"
+                fill="none" stroke="#5cc1ff" stroke-width="3"/>
+          <path d="M100 180 C140 140 180 220 220 180
+                   C260 140 300 220 340 180"
+                fill="none" stroke="#45e5a4" stroke-width="3"/>
+          <path d="M100 120 C120 80 140 160 160 120
+                   C180 80 200 160 220 120
+                   C240 80 260 160 280 120"
+                fill="none" stroke="#ff6b6b" stroke-width="3"/>
+        </svg>
+
+        <p class="muted small">
+          Beep frequency increases as the distance to an obstacle decreases,
+          providing intuitive spatial awareness during walking.
+        </p>
+      </div>
+
+      <!-- SLIP -->
+      <div class="card">
+        <h3>Slip Detection Warning</h3>
+
+        <svg viewBox="0 0 800 360" width="100%">
+          <line x1="80" y1="40" x2="80" y2="300" stroke="#9fb0c3" stroke-width="2"/>
+          <line x1="80" y1="300" x2="760" y2="300" stroke="#9fb0c3" stroke-width="2"/>
+
+          <text x="20" y="180" fill="#9fb0c3" font-size="14" transform="rotate(-90 20 180)">
+            Pressure
+          </text>
+          <text x="380" y="340" fill="#9fb0c3" font-size="14">
+            Time
+          </text>
+
+          <path d="M100 180 C160 170 220 190 280 180
+                   C340 170 400 190 460 180"
+                fill="none" stroke="#45e5a4" stroke-width="3"/>
+
+          <path d="M460 180 L520 260" stroke="#ff6b6b" stroke-width="3"/>
+          <path d="M520 260 C560 240 600 280 640 260"
+                fill="none" stroke="#ff6b6b" stroke-width="3"/>
+
+          <line x1="520" y1="60" x2="520" y2="90" stroke="#ff6b6b" stroke-width="4"/>
+          <line x1="540" y1="60" x2="540" y2="90" stroke="#ff6b6b" stroke-width="4"/>
+        </svg>
+
+        <p class="muted small">
+          A sudden pressure drop or loss of stable contact triggers
+          a high-frequency double beep to warn about a slippery surface.
+        </p>
+      </div>
+
+      <!-- EMERGENCY -->
+      <div class="card">
+        <h3>Emergency Alert</h3>
+
+        <svg viewBox="0 0 800 320" width="100%">
+          <line x1="80" y1="40" x2="80" y2="260" stroke="#9fb0c3" stroke-width="2"/>
+          <line x1="80" y1="260" x2="760" y2="260" stroke="#9fb0c3" stroke-width="2"/>
+
+          <text x="20" y="170" fill="#9fb0c3" font-size="14" transform="rotate(-90 20 170)">
+            Sound amplitude
+          </text>
+          <text x="380" y="300" fill="#9fb0c3" font-size="14">
+            Time
+          </text>
+
+          <path d="M100 260 L120 120 L160 120 L180 260
+                   L240 260 L260 120 L300 120 L320 260
+                   L380 260 L400 120 L440 120 L460 260"
+                fill="none" stroke="#ff4d4d" stroke-width="3"/>
+        </svg>
+
+        <p class="muted small">
+          Emergency mode produces a slow, repeating low-frequency tone.
+          It is manually triggered and immediately overrides all other alerts.
+        </p>
+      </div>
+
     </div>
   </div>
 </section>
-<div class="image-block">
-  <svg viewBox="0 0 800 360" width="100%" style="max-width:800px">
-    
-    <!-- Axes -->
-    <line x1="80" y1="40" x2="80" y2="300" stroke="#9fb0c3" stroke-width="2"/>
-    <line x1="80" y1="300" x2="760" y2="300" stroke="#9fb0c3" stroke-width="2"/>
 
-    <!-- Axis labels -->
-    <text x="20" y="160" fill="#9fb0c3" font-size="14" transform="rotate(-90 20 160)">
-      Beep frequency
-    </text>
-    <text x="360" y="340" fill="#9fb0c3" font-size="14">
-      Distance to obstacle
-    </text>
-
-    <!-- FAR -->
-    <path d="M 100 220 
-             C 160 180, 220 260, 280 220
-             C 340 180, 400 260, 460 220"
-          fill="none" stroke="#5cc1ff" stroke-width="3"/>
-    <text x="180" y="260" fill="#5cc1ff" font-size="13">Far</text>
-
-    <!-- MEDIUM -->
-    <path d="M 100 180 
-             C 140 140, 180 220, 220 180
-             C 260 140, 300 220, 340 180
-             C 380 140, 420 220, 460 180"
-          fill="none" stroke="#45e5a4" stroke-width="3"/>
-    <text x="260" y="140" fill="#45e5a4" font-size="13">Medium</text>
-
-    <!-- NEAR -->
-    <path d="M 100 120 
-             C 120 80, 140 160, 160 120
-             C 180 80, 200 160, 220 120
-             C 240 80, 260 160, 280 120
-             C 300 80, 320 160, 340 120"
-          fill="none" stroke="#ff6b6b" stroke-width="3"/>
-    <text x="240" y="80" fill="#ff6b6b" font-size="13">Near</text>
-
-  </svg>
-
-  <p class="muted small center">
-    Beep frequency increases as obstacle distance decreases (Arduino Uno firmware logic)
-  </p>
-</div>
 
 
 <!-- ================= VIDEO ================= -->
