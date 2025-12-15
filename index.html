@@ -486,30 +486,107 @@ with higher-priority alerts.
 
 
   <!-- ================= MY CONTRIBUTION ================= -->
-<section id="contribution" class="section alt">
+<section id="my-contribution" class="section">
   <div class="container">
     <h2 class="section-title">My Contribution — Firmware & Safety Logic</h2>
 
     <p class="muted center max600">
-      I was responsible for designing and implementing the core firmware logic,
-      focusing on safety, priority handling and intuitive feedback for blind users.
+      I was responsible for designing and implementing the core firmware logic
+      running on the Arduino Uno, with a focus on safety prioritization,
+      non-blocking execution, and intuitive feedback for blind users.
     </p>
 
     <div class="cards two">
+
       <div class="card">
-        <h3>Non-Blocking Firmware</h3>
+        <h3>Non-Blocking Firmware Architecture</h3>
         <p>
-          I implemented all logic using non-blocking timers instead of delays,
-          ensuring stable real-time behavior even with multiple active sensors.
+          I implemented the main control loop using <code>millis()</code>-based
+          scheduling instead of blocking delays. This allows ultrasonic sensing,
+          pressure monitoring, emergency handling, and feedback generation to run
+          concurrently without freezing the system.
+        </p>
+
+<pre><code>// Non-blocking sensor update
+if (now - lastSensorMillis >= SENSOR_INTERVAL_MS) {
+  lastSensorMillis = now;
+  readAllSensors();
+}
+</code></pre>
+
+        <p class="muted small">
+          This approach ensures predictable timing and stable behavior even when
+          multiple alerts are active.
         </p>
       </div>
 
       <div class="card">
-        <h3>Priority-Based Architecture</h3>
+        <h3>Priority-Based Safety Logic</h3>
         <p>
-          Emergency alerts override all systems, and obstacle feedback is enabled only when no higher-priority event is active.
+          I designed and implemented a strict priority hierarchy to prevent
+          conflicting feedback. Critical events always override lower-priority
+          signals.
+        </p>
+
+<pre><code>// Priority order:
+// 1. Emergency
+// 2. Slip detection
+// 3. Obstacle navigation
+if (emergencyActive) {
+  playEmergencySound();
+} else if (pressureAlertActive) {
+  playSlipAlert();
+} else {
+  playUltrasonicSound(closestDistance);
+}
+</code></pre>
+
+        <p class="muted small">
+          This guarantees that the user never receives mixed or misleading signals.
         </p>
       </div>
+
+      <div class="card">
+        <h3>Slip Detection Logic (HX711)</h3>
+        <p>
+          I implemented slip detection using a pressure sensor connected via the
+          HX711 module. Instead of a single threshold, the firmware analyzes
+          pressure trends and timing between steps.
+        </p>
+
+<pre><code>// Slip detection conditions
+if (pressure &lt; MIN_PRESSURE) slip = true;
+if ((lastPressure - pressure) &gt; DROP_THRESHOLD) slip = true;
+if (millis() - lastStepTime &gt; STEP_TIMEOUT) slip = true;
+</code></pre>
+
+        <p class="muted small">
+          This logic helps detect slippery or unstable surfaces before a fall occurs.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Adaptive Audio & Haptic Feedback</h3>
+        <p>
+          I implemented distance-based audio feedback where the beep interval
+          decreases as obstacles get closer, creating an intuitive spatial cue.
+          Vibration feedback is triggered for near obstacles and critical states.
+        </p>
+
+<pre><code>// Beep rate increases as distance decreases
+interval = map(distance,
+  WARN_DISTANCE,
+  CRITICAL_DISTANCE,
+  800,
+  150
+);
+</code></pre>
+
+        <p class="muted small">
+          This allows blind users to estimate distance without verbal instructions.
+        </p>
+      </div>
+
     </div>
   </div>
 </section>
@@ -582,6 +659,52 @@ with higher-priority alerts.
     </div>
   </div>
 </section>
+<div class="image-block">
+  <svg viewBox="0 0 800 360" width="100%" style="max-width:800px">
+    
+    <!-- Axes -->
+    <line x1="80" y1="40" x2="80" y2="300" stroke="#9fb0c3" stroke-width="2"/>
+    <line x1="80" y1="300" x2="760" y2="300" stroke="#9fb0c3" stroke-width="2"/>
+
+    <!-- Axis labels -->
+    <text x="20" y="160" fill="#9fb0c3" font-size="14" transform="rotate(-90 20 160)">
+      Beep frequency
+    </text>
+    <text x="360" y="340" fill="#9fb0c3" font-size="14">
+      Distance to obstacle
+    </text>
+
+    <!-- FAR -->
+    <path d="M 100 220 
+             C 160 180, 220 260, 280 220
+             C 340 180, 400 260, 460 220"
+          fill="none" stroke="#5cc1ff" stroke-width="3"/>
+    <text x="180" y="260" fill="#5cc1ff" font-size="13">Far</text>
+
+    <!-- MEDIUM -->
+    <path d="M 100 180 
+             C 140 140, 180 220, 220 180
+             C 260 140, 300 220, 340 180
+             C 380 140, 420 220, 460 180"
+          fill="none" stroke="#45e5a4" stroke-width="3"/>
+    <text x="260" y="140" fill="#45e5a4" font-size="13">Medium</text>
+
+    <!-- NEAR -->
+    <path d="M 100 120 
+             C 120 80, 140 160, 160 120
+             C 180 80, 200 160, 220 120
+             C 240 80, 260 160, 280 120
+             C 300 80, 320 160, 340 120"
+          fill="none" stroke="#ff6b6b" stroke-width="3"/>
+    <text x="240" y="80" fill="#ff6b6b" font-size="13">Near</text>
+
+  </svg>
+
+  <p class="muted small center">
+    Beep frequency increases as obstacle distance decreases (Arduino Uno firmware logic)
+  </p>
+</div>
+
 
 <!-- ================= VIDEO ================= -->
 <section class="section">
