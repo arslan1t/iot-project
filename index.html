@@ -22,7 +22,7 @@
         <a href="#projects">Workflow</a>
         <a href="#performance">Performance</a>
         <a href="#team">Team</a>
-        <a class="btn sm" href="#contribution">My Work</a>
+        <a class="btn sm" href="#my-contribution">My Work</a>
       </nav>
     </div>
   </header>
@@ -46,6 +46,13 @@
         movement for visually impaired users.
       </p>
 
+      <div class="hero-chips">
+        <span class="chip">Arduino Uno non-blocking firmware</span>
+        <span class="chip">3× HC-SR04 (left/center/right)</span>
+        <span class="chip">HX711 pressure slip detection</span>
+        <span class="chip">Buzzer • Vibration • RGB LED • LCD 16×2</span>
+      </div>
+
       <div class="hero-cta">
         <a class="btn" href="#projects">Explore Project ↓</a>
         <a class="btn ghost" href="#impact">Impact</a>
@@ -53,14 +60,33 @@
           Open PDF ↗
         </a>
       </div>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-num">3 zones</div>
+          <p class="stat-label">Ultrasonic coverage: left, center, right</p>
+        </div>
+        <div class="stat">
+          <div class="stat-num">HX711</div>
+          <p class="stat-label">Pressure trends for slip warning</p>
+        </div>
+        <div class="stat">
+          <div class="stat-num">Priority loop</div>
+          <p class="stat-label">Emergency/slip override navigation</p>
+        </div>
+      </div>
     </div>
 
     <!-- IMAGE -->
     <div class="hero-media card">
+      <div class="media-badge">Built and evaluated in university tests</div>
       <img
         src="pictures/main-picture.png"
         alt="Smart shoes assistive navigation prototype"
       />
+      <div class="media-footnote">
+        Arduino Uno • 3× HC-SR04 • HX711 • Buzzer • Motor • RGB LED • LCD 16×2
+      </div>
     </div>
 
   </div>
@@ -177,6 +203,41 @@ with higher-priority alerts.
     </div>
   </section>
 
+  <!-- OPTIONAL MODULES -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Optional Modules (Future Work)</h2>
+      <p class="muted center max600">
+        These modules are not part of the current Arduino Uno prototype; they are included as planned extensions for later iterations.
+      </p>
+
+      <div class="cards three">
+        <div class="card card-media">
+          <img loading="lazy" src="pictures/gps.png" alt="GPS module illustration" />
+          <h3>GPS Module</h3>
+          <p>Planned for real outdoor navigation and location sharing; currently simulated via Serial for testing.</p>
+        </div>
+
+        <div class="card card-media">
+          <img loading="lazy" src="pictures/esp32.png" alt="ESP32 module illustration" />
+          <h3>Wireless / Logging</h3>
+          <p>ESP32 can add Bluetooth/Wi‑Fi and telemetry once the core safety loop is fully validated.</p>
+        </div>
+
+        <div class="card card-media">
+          <img loading="lazy" src="pictures/lidar.png" alt="Rangefinder options illustration" />
+          <h3>Extended Sensing</h3>
+          <p>LiDAR or rangefinder modules can improve long-range detection; the prototype focuses on near-field ultrasonic sensing.</p>
+        </div>
+      </div>
+
+      <div class="image-block">
+        <img loading="lazy" src="pictures/system-map.png" alt="Design background asset used for diagrams">
+        <p class="muted small center">Diagram background (design asset)</p>
+      </div>
+    </div>
+  </section>
+
 <section class="section">
   <div class="container center">
     <h2 class="section-title">System Architecture</h2>
@@ -204,8 +265,73 @@ with higher-priority alerts.
     </div>
 
     <p class="muted small center" style="margin-top:12px;">
-      Swipe or use arrows to view system overview and wiring details
+      Swipe or use arrows to view system overview and wiring details • <a href="#interactive-map">Interactive component map</a>
     </p>
+  </div>
+</section>
+
+<!-- INTERACTIVE MAP -->
+<section id="interactive-map" class="section alt">
+  <div class="container">
+    <h2 class="section-title">Interactive Component Map</h2>
+    <p class="muted center max600">Hover or tap a point to see what each module does in the prototype.</p>
+
+    <div class="system-map">
+      <div class="map-image card">
+        <img loading="lazy" src="pictures/system-overview.png" alt="Wokwi wiring layout (Arduino Uno, sensors, HX711, LCD)">
+
+        <button type="button" class="hotspot active" data-id="arduino" style="top:46%;left:55%;" aria-label="Arduino Uno"></button>
+        <button type="button" class="hotspot" data-id="ultra-left" style="top:16%;left:24%;" aria-label="Left ultrasonic sensor"></button>
+        <button type="button" class="hotspot" data-id="ultra-center" style="top:16%;left:50%;" aria-label="Center ultrasonic sensor"></button>
+        <button type="button" class="hotspot" data-id="ultra-right" style="top:16%;left:88%;" aria-label="Right ultrasonic sensor"></button>
+        <button type="button" class="hotspot" data-id="lcd" style="top:63%;left:14%;" aria-label="LCD 16x2"></button>
+        <button type="button" class="hotspot" data-id="hx711" style="top:78%;left:40%;" aria-label="HX711 pressure sensor module"></button>
+        <button type="button" class="hotspot" data-id="buzzer" style="top:82%;left:63%;" aria-label="Piezo buzzer"></button>
+        <button type="button" class="hotspot" data-id="emergency" style="top:79%;left:77%;" aria-label="Emergency button"></button>
+      </div>
+
+      <div class="map-descriptions">
+        <div class="desc active" data-id="arduino">
+          <h3>Arduino Uno (Controller)</h3>
+          <p class="muted small">Runs the non-blocking loop, reads sensors, and enforces priority (emergency → slip → navigation).</p>
+        </div>
+
+        <div class="desc" data-id="ultra-left">
+          <h3>HC-SR04 (Left)</h3>
+          <p class="muted small">Left-side near-field distance sensing to detect obstacles and guide the user away.</p>
+        </div>
+
+        <div class="desc" data-id="ultra-center">
+          <h3>HC-SR04 (Center)</h3>
+          <p class="muted small">Primary forward obstacle detection used to drive distance-based beep intervals.</p>
+        </div>
+
+        <div class="desc" data-id="ultra-right">
+          <h3>HC-SR04 (Right)</h3>
+          <p class="muted small">Right-side obstacle sensing to widen coverage and reduce missed hazards.</p>
+        </div>
+
+        <div class="desc" data-id="lcd">
+          <h3>LCD 16×2</h3>
+          <p class="muted small">Displays mode and detected states for validation and explainable behavior during tests.</p>
+        </div>
+
+        <div class="desc" data-id="hx711">
+          <h3>HX711 + Pressure Pad</h3>
+          <p class="muted small">Tracks pressure trends; sudden drops or instability trigger a dedicated slip warning pattern.</p>
+        </div>
+
+        <div class="desc" data-id="buzzer">
+          <h3>Piezo Buzzer</h3>
+          <p class="muted small">Primary audio feedback: navigation beeps scale with distance; alerts use distinct patterns.</p>
+        </div>
+
+        <div class="desc" data-id="emergency">
+          <h3>Emergency Button</h3>
+          <p class="muted small">Long-press override that immediately activates the highest-priority alert mode.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -235,6 +361,30 @@ with higher-priority alerts.
 
       </div>
       <p class="muted small center" style="margin-top:16px;">Pressure-based slip detection is described in the dedicated <a href="#slip-detection">slip-detection</a> section.</p>
+    </div>
+  </section>
+
+  <!-- PERFORMANCE -->
+  <section id="performance" class="section alt">
+    <div class="container center">
+      <h2 class="section-title">Performance & Evaluation</h2>
+      <p class="muted max600 center">
+        Key characteristics validated in the Arduino Uno prototype and Wokwi simulation
+      </p>
+
+      <div class="performance-grid">
+        <div class="perf-card"><h3>3× HC-SR04</h3><p>Directional obstacle sensing</p></div>
+        <div class="perf-card"><h3>HX711</h3><p>Pressure trend slip warning</p></div>
+        <div class="perf-card"><h3>Non-blocking</h3><p><code>millis()</code>-based task scheduling</p></div>
+        <div class="perf-card"><h3>Emergency</h3><p>Long-press button override</p></div>
+        <div class="perf-card"><h3>LCD 16×2</h3><p>Live status + debug text</p></div>
+        <div class="perf-card"><h3>Serial Sim</h3><p>Mock GPS and voice output</p></div>
+      </div>
+
+      <div class="performance-image-block">
+        <img loading="lazy" src="pictures/performance-diagram.png" alt="Digital health framing used for evaluation and documentation">
+        <p class="muted small center">Academic framing used in the project report and evaluation</p>
+      </div>
     </div>
   </section>
 
@@ -289,48 +439,6 @@ with higher-priority alerts.
 </section>
 
 
-
-<section id="sound-logic" class="section">
-  <div class="container">
-    <h2 class="section-title">Adaptive Sound Feedback Logic</h2>
-
-    <p class="muted center max600">
-      Intuitive audio feedback designed for navigation without visual cues
-    </p>
-
-    <table>
-      <thead>
-        <tr>
-          <th>Event Type</th>
-          <th>Sound Pattern</th>
-          <th>Purpose</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Emergency</td>
-          <td>Low-frequency slow repeating tone</td>
-          <td>Immediate critical alert</td>
-        </tr>
-        <tr>
-          <td>Slip Detection</td>
-          <td>High-frequency double beep</td>
-          <td>Surface instability warning</td>
-        </tr>
-        <tr>
-          <td>Obstacle Navigation</td>
-          <td>Beep speed increases as distance decreases</td>
-          <td>Spatial distance awareness</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <p class="center muted max600" style="margin-top:24px;">
-      For obstacle detection, the closer the obstacle is, the faster the sound interval becomes,
-      creating an intuitive audio representation of distance.
-    </p>
-  </div>
-</section>
 
 <section class="section alt">
   <div class="container">
@@ -619,6 +727,11 @@ interval = map(distance,
       <img src="pictures/slip-detection.png" alt="Slip detection using pressure sensor (HX711)">
       <p class="muted small center">Wokwi simulation of pressure-based slip detection</p>
     </div>
+
+    <div class="image-block">
+      <img loading="lazy" src="pictures/HX711.png" alt="HX711 wiring close-up in simulation">
+      <p class="muted small center">HX711 wiring close-up (simulation screenshot)</p>
+    </div>
   </div>
 </section>
 
@@ -781,6 +894,37 @@ interval = map(distance,
 
 
 <!-- ================= FOOTER ================= -->
+<section class="section alt" id="contact">
+  <div class="container">
+    <h2 class="section-title">Contact</h2>
+    <p class="muted center max600">Leave a message for project feedback or collaboration (demo form).</p>
+
+    <div class="form">
+      <div class="grid">
+        <div>
+          <label for="name">Name</label>
+          <input id="name" type="text" placeholder="Your name" />
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input id="email" type="email" placeholder="you@example.com" />
+        </div>
+      </div>
+
+      <div style="margin-top:12px;">
+        <label for="message">Message</label>
+        <textarea id="message" rows="5" placeholder="Write your message..."></textarea>
+      </div>
+
+      <div style="margin-top:14px; display:flex; justify-content:center;">
+        <button id="sendBtn" class="btn" type="button">Send Message</button>
+      </div>
+
+      <p id="formStatus" class="muted center small" style="min-height:20px; margin-top:12px;"></p>
+    </div>
+  </div>
+</section>
+
 <footer class="footer-advanced">
   <div class="container footer-grid">
     <div class="footer-column">
@@ -803,7 +947,7 @@ interval = map(distance,
     <div class="footer-column">
       <h4>Resources</h4>
       <a href="https://github.com/qwfsgdh/iot-project" target="_blank">GitHub Repository</a>
-      <a href="#contribution">Firmware Overview</a>
+      <a href="#my-contribution">Firmware Overview</a>
       <a href="#sound-logic">Sound Logic Table</a>
     </div>
   </div>
